@@ -1,0 +1,70 @@
+﻿# Basic
+title: Evil-Binary
+subtitle: 个人站
+description: 僕らの手には何もないけど,かわりに　つなぎあえるから
+# 头像里面的标题
+avatarTitle: Evil-Binary
+# 头像里面的描述
+avatarDesc: 这里什么都没有
+url: "http://evil-binary.github.io"
+use_math: true
+
+# Comment
+comment:
+#    disqus: leopard
+#    uyan: 2143225  # 有言id,登录有言官网申请
+
+# Social
+social:
+    weibo:  None
+    github: evil-binary
+    mail: 1341281757@qq.com
+
+# 百度统计
+# 已去除
+# https://hm.baidu.com/hm.js?0a48d79fedad2ce3fc57ac576c11931b
+
+#baidu:
+#    id: 0a48d79fedad2ce3fc57ac576c11931b
+
+# Google Analytics
+# 使用博客模板请去掉或者更换 id
+# 已去除
+#ga:
+#    id: UA-157552051-1
+#    host: auto  
+# 悄悄告诉你还有GoogleAds哦,不过我注释掉了(在head.html)
+
+# 《----------------- 上面的信息修改成你自己的 ---------------------------》
+#
+# 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
+
+
+permalink: /:year/:month/:title/
+# Format
+highlighter: rouge
+
+textColor: #FF0000
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: clear
+
+# The blog button should not be removed.
+blog_button:
+    title: 博客主页
+
+# Navigation buttons in the front page.s
+nav:
+    #文章过少，暂时不需要分标签和所有文章
+    #- {title: 所有文章, description: archive, url: '/archive'}
+    #- {title: 标签, description: tags, url: '/tags'}
+    - {title: 所有文章, description: tags, url: '/tags'}
+    - {title: 关于我, description: about, url: '/about'}      
+    
+
+# Pagination
+gems: [jekyll-paginate,jekyll-sitemap]
+paginate: 20
+paginate_path: "page/:num/"
+
+
