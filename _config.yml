@@ -13,7 +13,7 @@ kramdown:
   use_coderay: true
 
 # Comment
-comment:
+# comment:
 #    disqus: leopard
 #    uyan: 2143225  # 有言id,登录有言官网申请
 
@@ -36,7 +36,7 @@ social:
 #ga:
 #    id: UA-157552051-1
 #    host: auto  
-# 悄悄告诉你还有GoogleAds哦,不过我注释掉了(在head.html)
+# 悄悄告诉你还可以设GoogleAds哦
 
 # 《----------------- 上面的信息修改成你自己的 ---------------------------》
 #
