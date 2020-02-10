@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 关于我 
+music-id: 32288085
 ---
 
 一个初学者，喜欢研究一些新技术。
