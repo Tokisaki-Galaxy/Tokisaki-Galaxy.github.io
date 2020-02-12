@@ -60,8 +60,8 @@ blog_button:
 # Navigation buttons in the front page.s
 nav:
     #文章过少，暂时不需要分标签和所有文章
-    #- {title: 所有文章, description: archive, url: '/archive'}
-    #- {title: 标签, description: tags, url: '/tags'}
+    - {title: 所有文章, description: archive, url: '/archive'}
+    - {title: 标签, description: tags, url: '/tags'}
     - {title: 所有文章, description: tags, url: '/tags'}
     - {title: 关于我, description: about, url: '/about'}      
     
@@ -70,5 +70,3 @@ nav:
 plugins: [jekyll-paginate,jekyll-sitemap]
 paginate: 20
 paginate_path: "page/:num/"
-
-
