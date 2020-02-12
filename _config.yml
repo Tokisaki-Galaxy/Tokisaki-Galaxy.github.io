@@ -28,8 +28,8 @@ social:
 # 已去除
 # https://hm.baidu.com/hm.js?0a48d79fedad2ce3fc57ac576c11931b
 
-#baidu:
-#    id: 0a48d79fedad2ce3fc57ac576c11931b
+baidu:
+    id: 0a48d79fedad2ce3fc57ac576c11931b
 
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
