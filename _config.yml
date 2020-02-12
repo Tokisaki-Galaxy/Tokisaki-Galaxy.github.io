@@ -43,14 +43,6 @@ baidu:
 #
 # 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
 
-live2d:
-  enable: true
-  live2d_settings:
-    - key: "'waifuEdgeSide'"
-      value: "'right:0'"
-    - key: "'modelId'"
-      value: 5
-
 permalink: /:year/:month/:title/
 # Format
 highlighter: rouge
