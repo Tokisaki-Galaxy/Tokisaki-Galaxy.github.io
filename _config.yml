@@ -7,7 +7,7 @@ avatarTitle: Evil-Binary
 # 头像里面的描述
 avatarDesc: 这里什么都没有
 url: "http://evil-binary.github.io"
-markdown: kramdown
+#markdown: kramdown
 #kramdown:
 #  input:  GFM
 #  use_coderay: true
