@@ -8,7 +8,6 @@ avatarTitle: Evil-Binary
 avatarDesc: 这里什么都没有
 avatar: https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg
 url: "http://evil-binary.github.io"
-background-image: https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/background-cover.jpg
 
 markdown: kramdown
 kramdown:
