@@ -27,13 +27,10 @@ social:
 
 live2d:
    enable: true
-   live2d_widget: <script src="https://cdn.jsdelivr.net/gh/evil-binary/live2d-widget@latest/autoload.js"
+   live2d_widget: https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/waifu/autoload.js
 
 
 # 百度统计
-# 已去除
-# https://hm.baidu.com/hm.js?0a48d79fedad2ce3fc57ac576c11931b
-
 baidu:
     id: 0a48d79fedad2ce3fc57ac576c11931b
 
