@@ -25,6 +25,11 @@ social:
     github: evil-binary
     mail: 1341281757@qq.com
 
+live2d:
+   enable: true
+   live2d_widget: <script src="https://cdn.jsdelivr.net/gh/evil-binary/live2d-widget@latest/autoload.js"
+
+
 # 百度统计
 # 已去除
 # https://hm.baidu.com/hm.js?0a48d79fedad2ce3fc57ac576c11931b
@@ -39,10 +44,6 @@ baidu:
 #    id: UA-157552051-1
 #    host: auto  
 # 悄悄告诉你还可以设GoogleAds哦
-
-# 《----------------- 上面的信息修改成你自己的 ---------------------------》
-#
-# 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
 
 permalink: /:year/:month/:title/
 # Format
