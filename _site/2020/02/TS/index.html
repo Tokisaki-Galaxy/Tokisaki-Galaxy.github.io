@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>ThrottleStop教程</title>
+  <meta name="description" content="">
+  <meta name="google-site-verification" content="ZUU-JbXl-OjIYuc0H9F9vfYUVmVjPtFInD3HywDrx5o" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ThrottleStop教程">
+  <meta name="twitter:description" content="">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ThrottleStop教程">
+  <meta property="og:description" content="">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+  <link rel="canonical" href="http://localhost:4000/2020/02/TS/">
+  <link rel="alternate" type="application/rss+xml" title="Evil-Binary" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+<!--支持mathjax-->
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[','\\]'] ], processEscapes: true } }); </script> <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  
+
+<!-- 百度统计 -->
+  
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?0a48d79fedad2ce3fc57ac576c11931b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
+
+
+  <!-- Google 统计 -->
+<!--  -->
+
+
+<!--
+<!--Google 广告(爱你哦)->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9005224472374751",
+    enable_page_level_ads: true
+  });
+</script>-->
+
+<link rel="stylesheet" type="text/css" href="/assets/waifu/waifu.css"/>
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于我
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 Evil-Binary 的主页" class="blog-button">
+                <div class="img"><img src="/assets/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                Evil-Binary
+                            
+                        </h2>
+                        <p>
+                           
+                                这里什么都没有
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Evil-Binary" class="blog-button">Evil-Binary</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">个人站</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">僕らの手には何もないけど,かわりに　つなぎあえるから</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">ThrottleStop教程</h1>
+    <div class="post-meta">
+      <img src="/assets/images/calendar.png" width="20px"/> 
+      <time datetime="2020-02-09 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-02-09</time>  
+         
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span> 次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+     <!-- 在正文开头添加网易云音乐插件 -->
+    
+    <ul id="markdown-toc">
+  <li><a href="#throttlestop配置" id="markdown-toc-throttlestop配置">ThrottleStop配置</a>    <ul>
+      <li><a href="#options" id="markdown-toc-options">Options</a></li>
+      <li><a href="#fivr最重要的部分" id="markdown-toc-fivr最重要的部分">FIVR(最重要的部分)</a></li>
+      <li><a href="#tpl" id="markdown-toc-tpl">TPL</a></li>
+      <li><a href="#c7s" id="markdown-toc-c7s">C7s</a></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <ul>
+    <li>ThrottleStop</li>
+  </ul>
+</blockquote>
+
+<p>下载地址:
+<a href="https://www.techpowerup.com/download/techpowerup-throttlestop/">ThrottleStop</a></p>
+
+<h1 id="throttlestop配置">ThrottleStop配置</h1>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1h5Vqs.png" alt="主界面" /></p>
+
+<p>左上第一个红框是选择配置文件,软件默认有4个配置文件</p>
+
+<ol>
+  <li>Performance</li>
+  <li>Game</li>
+  <li>Internet</li>
+  <li>Battery</li>
+</ol>
+
+<p><strong>用法就像名字一样(废话)</strong></p>
+
+<hr />
+
+<p>左下那个红框,<em>先介绍第一列的功能</em></p>
+
+<p><strong>Clock Modulation和Chipset Clock Modulation</strong> 这两个选项对一些有点岁数的CPU 会有用，我们用不着..
+<strong>不需要勾选!</strong></p>
+
+<p><strong>Set Multiplier</strong> 设置倍频，设到默认+1就行了
+<strong>不设也行</strong></p>
+
+<p><strong>Speed Shift EPP</strong> <strong>非常有用!</strong>
+看到左边的数字了吗,那里是可以编辑的!(想不到吧)
+<strong>值取一个0-255的数字,越接近0 性能越高,越接近255越节能(性能越低)</strong></p>
+
+<p><strong>Power Saver</strong> 需要勾选 Disable Turbo 才能使用，该选项确保待机频率最低以降低功耗，对较新的处理器来说用处不大，因为现代处理器有新技术降低待机功耗。比酷睿 2 更新的处理器不建议使用这个。
+<strong>看着办,一般不勾</strong></p>
+
+<p><strong>Disable Turbo</strong> 关闭睿频。没啥可说
+<strong>现在处理器最好别勾</strong>(你基础频率才2G+)</p>
+
+<p><strong>BD PROCHOT</strong> <strong>非常,非常重要和有用</strong>
+在温度达到某一值的时候降低功率,俗称温度墙,就是这东西.(默认打开)
+<strong>有需要就关上,但并不建议关</strong>
+!!!关了如果<strong>没有其他措施</strong>会导致cpu无法自动降频,直到100度<strong>强制断电</strong>!!!</p>
+
+<p>Taskbar 最小化到任务栏
+<strong>给我关上!!!烦死了</strong></p>
+
+<p>Log File 启用日志
+<strong>一般不勾(大佬勾)</strong></p>
+
+<p>Stop/Start Data 停止或开启右侧表格记录数据更新。</p>
+
+<p>SpeedStep 也是个老古董,没必要勾,已被Shift EPP替代(除非你也是古董)
+<strong>如果没有Speed Shift EPP就勾</strong></p>
+
+<p>C1E 玄学选项,默认勾选
+<strong>既然默认勾就别动了</strong></p>
+
+<p>On Top 使得 ThrottleStop 置顶（不会被其他窗口遮挡）。
+<strong>调试的时候才勾</strong></p>
+
+<p>More Data 加快右侧表格数据更新频率，从每秒更新 1 次加快到每秒更新 8 次。
+<strong>一般用不着</strong></p>
+
+<p>Save 将当前设置存入 ini 文件。
+<strong>修改完记得按一下</strong></p>
+
+<hr />
+
+<p>右上红框是你CPU的数据</p>
+
+<ol>
+  <li>VID是当前电压</li>
+  <li>倍数x基础频率</li>
+  <li><strong>你当前cpu频率</strong>(就是第二行的结果)</li>
+</ol>
+
+<hr />
+
+<p>自己理解那个表格</p>
+
+<hr />
+
+<p>右下没被框的区域
+Pkg/Min/Max Power 当前/最小/最大记录到的功率。</p>
+
+<p>Limits 可以显示 Core/GPU/Ring 降频的原因</p>
+
+<p>FIVR 和 TPL 一会用得到</p>
+
+<p>BCLK 重新读取校准基频读数</p>
+
+<p>C7s C-STATE</p>
+
+<p>DTS/Temp 切换温度显示方式
+<strong>DTS是距离到达CPUTJMAX的温度,TEMP是现在的温度(CPUTJMAX-DTS)</strong></p>
+
+<p>CLR 清空数据</p>
+
+<hr />
+
+<h2 id="options">Options</h2>
+
+<p><strong>打开下面 Options 按钮</strong></p>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hqlkj.png" alt="1hqlkj.png" /></p>
+
+<p>Profile Names 起名字</p>
+
+<p>Notification Area 设置托盘处显示的信息
+<em>这里建议勾上CPU Temp</em></p>
+
+<p>Alarm 设置温度警报,DTS和TEMP上面讲过了</p>
+
+<p>AC profile 插电时配置</p>
+
+<p>Battery profile 用电池时配置。</p>
+
+<p>Low Battery% 电池剩余电量百分比</p>
+
+<p>Low Battery profile 到了上面的百分比,你用哪个配置</p>
+
+<p>Do Not reset FID/VID on exit，退出不TS恢复设置
+<strong>建议勾上</strong></p>
+
+<p>Battery Monitoring 在主界面上显示电池剩余电量</p>
+
+<p>AC-On，Battery-Off 字面意思</p>
+
+<p>Start Minimized 启动时最小化
+<strong>建议勾上</strong></p>
+
+<p>Minimize on Close 
+<strong>建议勾上</strong></p>
+
+<p>Add Limits Reason to Log File 在日志中记录限制原因</p>
+
+<p>Table Grid Lines 主界面数据表格线显示</p>
+
+<p>MHz Min 数据显示最小的单位为 MHz。</p>
+
+<p>Nvidia GPU/AMD GPU 你用哪个勾哪个</p>
+
+<p>Start dual IDA 老技术,不勾</p>
+
+<p>DC exit time使用电池后几秒自动关闭TS</p>
+
+<p>Timer Resolution计时器间隔。</p>
+
+<p>AC Timer Res AC 计时器间隔。</p>
+
+<p>Power Save C0% 调整 Power Saver 选项的敏感度</p>
+
+<p>Force TDP/TDC <strong>不明</strong>
+如果有人知道请评论区告诉我,谢谢</p>
+
+<p>Run Program After Profile Change 指定切换为某个模式前或后所运行的第三方程序</p>
+
+<p>Log Folder 日志文件路径</p>
+
+<p>Hotkeys 设置各种快捷键，例如切换配置文件等</p>
+
+<p>Defaults 还原默认设置</p>
+
+<hr />
+
+<h2 id="fivr最重要的部分">FIVR(最重要的部分)</h2>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hLqR1.png" alt="1hLqR1.png" /></p>
+
+<p>直接说中间那行,左边不说了.</p>
+
+<p>上面FIVR CONTROL很好理解,就是指选择哪个组件,然后通过下面的XXX Voltage来调整</p>
+
+<p>XXX Voltage是重点,这里为了防止你瞎改,还特意有一个”Unlock Adjustable Voltage”,必须先点了这个才能修改下面的设置</p>
+
+<p><strong>注意不要碰到那个STATIC!</strong></p>
+
+<p>不要碰那个Voltage</p>
+
+<p>看Offset Voltage,Range是控制你调整范围,左边是降低电压,右边升高电压</p>
+
+<p>IccMax <strong>不明</strong>
+如果有人知道请评论区告诉我,谢谢</p>
+
+<p>右边那行,最上面的表格应该都懂</p>
+
+<p>Memory那行的Disable and Lock Tur bo Power Limits,要安装另外一个东西才能用,降压用不着</p>
+
+<p>Cache Radio 设置缓存的倍频范围。</p>
+
+<p>PowerCut 类似于 BIOS 里修改 IMON Slope/offset 通过虚假的功耗读数来超出某些处理器的功耗限制。</p>
+
+<p>VR Faults/VR Efficiency Mode 自己查(懒得写)(反正降压用不着)</p>
+
+<p>Save Voltages Changes to ThrottleStop.INI 选项一，不保存电压设置。选项二，关闭时保存。选项三，立即保存。</p>
+
+<hr />
+
+<h2 id="tpl">TPL</h2>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hvVL6.png" alt="1hvVL6.png" /></p>
+
+<p>Tur bo Boost Long Power Max 最大长时功率</p>
+
+<p>Tur bo Boost Short Power Max 最大短时功率</p>
+
+<p>Lock 是说在寄存器中锁定这两项,避免软件或系统对其进行修改,如果日后要解锁需要按照上边卸载和重置的流程来做
+Clamp 勾选代表任何时候都遵循此设置,不勾选时仅在睿频时起效.例如 CPU 默频 3.4G，但是在 3.4G 时仍然超过所给功率限制（例如做密集 AVX 运算），勾选 Clamp 的情况会强制 CPU 继续降频直到满足功耗限制，不勾选的话则不会。</p>
+
+<p>PP0 就是PL4 设置</p>
+
+<hr />
+
+<h2 id="c7s">C7s</h2>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hvVL6.png" alt="1hvVL6.png" /></p>
+
+<p>C10 分别设置 1-4 四种配置的 C-states，C0 为最高性能状态，基本上后边的数字越大越省电，相应的恢复到 C0 需要的时间也就越长。调整这里的选项可以省电降低待机温度或者相反的提高待机温度费电以获得更高的性能。</p>
+
+
+  </section>
+</article>
+
+<section>
+
+            <div class="content-play" style="align:center">
+              <p style="text-align:center;"><a style="diaplay:inline-block; transform:translate(50%,0);" href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+              <div class="hide_box-play"></div>
+              <div class="shang_box-play">
+                <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/assets/images/payimg/close.jpg" alt="取消" /></a>
+                <div class="shang_tit-play">
+                  <p>感谢您的支持，我会继续努力的!</p>
+                </div>
+                <div class="shang_payimg">
+                    <img src="/assets/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+              <div style="align:center" class="shang_payimg">
+                    <img src="/assets/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">你说多少就多少</div>
+                <div class="shang_payselect">
+                  <div class="pay_item checked" data-id="alipay">
+                    <span class="pay_logo"><img src="/assets/images/payimg/alipay.jpg" alt="支付宝" /></span>
+                  </div>
+                  <div class="pay_item" data-id="weipay">
+                    <span class="pay_logo"><img src="/assets/images/payimg/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info-play">
+                  <p>比五毛钱特效哦</p>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            function dashangToggle(){
+              $(".hide_box-play").fadeToggle();
+              $(".shang_box-play").fadeToggle();
+            }
+            </script>
+
+            <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+            <style type="text/css">
+              .content-play{width:80%;margin-top: 20px;margin-bottom: 10px;height:40px;}
+              .hide_box-play{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+              .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+              .shang_box-play img{border:none;border-width:0;}
+              .dashang{display:block;width:60px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .shang_close-play{float:right;display:inline-block;
+                margin-right: 10px;margin-top: 20px;
+              }
+              .shang_logo{display:block;text-align:center;margin:20px auto;}
+              .shang_tit-play{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/assets/images/payimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+              .shang_tit-play p{color:#a3a3a3;text-align:center;font-size:16px;}
+              .shang_payimg{width:140px;padding:10px;padding-left: 80px; /*border:6px solid #EA5F00;**/margin:0 auto;border-radius:3px;height:140px;display:inline-block;}
+              .shang_payimg img{display:inline-block;margin-right:10px;float:left;text-align:center;width:140px;height:140px; }
+              .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+              .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:500px;margin-left:110px;}
+              .shang_payselect .pay_item{display:inline-block;margin-right:140px;float:left;}
+              .shang_info-play{clear:both;}
+              .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+            </style>
+
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2020/02/CPU/" data-toggle="tooltip" data-placement="top" title="CPU升(降)压教程">上一篇：  <span>CPU升(降)压教程</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2020/02/CMD/" data-toggle="tooltip" data-placement="top" title="CMD脚本">下一篇：  <span>CMD脚本</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+  
+<!--GitTalk-->
+<!-- Link Gitalk 的支持文件  -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!--<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">-->
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<!--<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>-->
+
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '9122fb8a3b36c1d53f33',
+        clientSecret: '56cf25fad7aa8b419fc956853c52fb1229e78a0e',
+        repo: 'blog-talk',
+        owner: 'evil-binary',
+        admin: ['evil-binary'],
+        id: location.pathname,
+//        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+</script> 
+<!-- Gitalk end -->
+
+  <!--
+  
+  -->
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">  
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+          
+          <!-- Weibo -->
+          <li class="navigation__item_social">
+            <a href="http://weibo.com/None" title="@None 的微博" target="_blank">
+              <i class='social fa fa-weibo fa-2x'></i>
+              <span class="label">Weibo</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/evil-binary" title="@evil-binary 的 Github" target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:1341281757@qq.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+
+          </ul>
+        </nav>
+
+        </div>
+
+        <div class = "footer_div">  
+           <p class="copyright text-muted">
+            Copyright &copy; Evil-Binary 2020 Theme by <a href="https://sirfive.github.io">sirfive</a> |
+            <!--
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://github.com/sirFive" >
+            </iframe>
+            -->
+            </p>
+        	<div align="right">
+    			<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_pv">
+            本站总访问量
+            <span id="busuanzi_value_site_pv"></span>次
+          </span>
+
+          <!--<script src="/assets/waifu/autoload.js" type="text/javascript"></script>-->
+
+        </div>
+        <div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+    <!--
+    <script src="/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script>
+    <script>
+    L2Dwidget.init({"pluginRootPath":"/assets/live2d","pluginJsPath":"/lib","pluginModelPath":"/assets/live2d","tagMode":false,"debug":false,"model":{"jsonPath":"/assets/live2d/nito.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});
+    </script>
+  -->
+
+  </body>
+
+</html>

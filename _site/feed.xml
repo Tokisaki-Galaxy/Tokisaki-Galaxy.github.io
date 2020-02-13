@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Evil-Binary</title>
+    <description>僕らの手には何もないけど,かわりに　つなぎあえるから</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 12 Feb 2020 22:58:58 +0800</pubDate>
+    <lastBuildDate>Wed, 12 Feb 2020 22:58:58 +0800</lastBuildDate>
+    <generator>Jekyll v3.6.3</generator>
+    
+      <item>
+        <title>树莓派连接GPS模块</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#准备工作&quot; id=&quot;markdown-toc-准备工作&quot;&gt;准备工作&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#gpsd&quot; id=&quot;markdown-toc-gpsd&quot;&gt;GPSD&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#安装gpsd&quot; id=&quot;markdown-toc-安装gpsd&quot;&gt;安装GPSD&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#修改端口&quot; id=&quot;markdown-toc-修改端口&quot;&gt;修改端口&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;准备工作&quot;&gt;准备工作&lt;/h1&gt;
+
+&lt;p&gt;RPi GPS Add-on V2.0模块,采用的是UART接口通信,需要先启用uart接口,否则无法收到任何数据&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo raspi-config&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;5 Interfacing Options -&amp;gt; P6 Serial 两个全部禁用(这个操作将禁用串口!)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo nano /boot/config.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;拉到最下面,将&lt;code&gt;enable_uart=0&lt;/code&gt;改成&lt;code&gt;enable_uart=1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;再加一行&lt;code&gt;dtoverlay=pi3-miniuart-bt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;重启后&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ls /dev -la |grep serial&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;pi@RAAZ:~ $ ls /dev -la | grep serial&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;lrwxrwxrwx  1 root root           7 Feb 12 16:19 serial1 -&amp;gt; ttyAMA0&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;找到自己GPS模块在哪里,&lt;strong&gt;我这里是/dev/ttyAMA0,你可能需要修改&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;然后&lt;code&gt;cat /dev/ttyAMA0&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;然后应该能看到一大堆数据,按&lt;code&gt;Ctrl+C&lt;/code&gt;停止.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;没有任何输出可能是操作有误,或模块损坏&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;gpsd&quot;&gt;GPSD&lt;/h1&gt;
+
+&lt;h2 id=&quot;安装gpsd&quot;&gt;安装GPSD&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get install gpsd gpsd-clients python-gps&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;修改端口&quot;&gt;修改端口&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;sudo nano /etc/default/gpsd&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;USBAUTO=&quot;false&quot;
+DEVICES=&quot;/dev/ttyAMA0&quot;
+GPSD_OPTIONS=&quot;-n&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;按照上述改完之后,重启系统&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cgps&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cgps is a client resembling xgps, but without the pictorial satellite display and able to run on a serial terminal or terminal emulator.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The -s option prevents cgps from displaying the data coming from the daemon. This display can also be toggled with the s command.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The -m option will display your magnetic heading (as opposed to your true heading). This is a calculated value, not a measured value, and is subject to a potential error of up to two degrees in the areas for which the calculation is valid (currently Western Europe, Alaska, and Lower 48 in the USA). The formulas used are those found in the Aviation Formulary v1.43.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cgps terminates when you send it a SIGHUP or SIGINT; given default terminal settings this will happen when you type Ctrl-C at it. It will also terminate on ‘q’&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;输入&lt;code&gt;cgps -s&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;!如果你用的是图形界面,不是命令行,那试试xgps!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;应该就可以看到结果了&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;冷启动要等挺久的&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;如果NO FIX那一行后面的数字没有跳动,请检查/dev/ttyAMA0是否有输出&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;如果等很久还没定位,可能是GPS信号差&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 12 Feb 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/02/RPi-GPS/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/RPi-GPS/</guid>
+        
+        <category>RPi</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>CMD脚本</title>
+        <description>
+&lt;p&gt;&lt;code&gt;FOR /L %variable IN (start,step,end) DO command [command-parameters]&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;该集表示以增量形式从开始到结束的一个数字序列。因此，(1,1,5)将产生序列
+   1 2 3 4 5，(5,-1,1)将产生序列(5 4 3 2 1)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;对二进制文件连接用copy /b 1.txt+2.txt 1.txt&lt;/p&gt;
+
+&lt;p&gt;例如1.txt是abc,2.txt是def,运行完之后,1.txt里面内容就是abcdef&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;for /l %i in (1,1,36) do (copy /b a.ts+seg-%i-v1-a1.ts&amp;gt;&amp;gt; a.ts)&lt;/code&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 10 Feb 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/02/CMD/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/CMD/</guid>
+        
+        <category>CMD</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>ThrottleStop教程</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#throttlestop配置&quot; id=&quot;markdown-toc-throttlestop配置&quot;&gt;ThrottleStop配置&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#options&quot; id=&quot;markdown-toc-options&quot;&gt;Options&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#fivr最重要的部分&quot; id=&quot;markdown-toc-fivr最重要的部分&quot;&gt;FIVR(最重要的部分)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#tpl&quot; id=&quot;markdown-toc-tpl&quot;&gt;TPL&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#c7s&quot; id=&quot;markdown-toc-c7s&quot;&gt;C7s&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;ThrottleStop&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;下载地址:
+&lt;a href=&quot;https://www.techpowerup.com/download/techpowerup-throttlestop/&quot;&gt;ThrottleStop&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;throttlestop配置&quot;&gt;ThrottleStop配置&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1h5Vqs.png&quot; alt=&quot;主界面&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;左上第一个红框是选择配置文件,软件默认有4个配置文件&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Performance&lt;/li&gt;
+  &lt;li&gt;Game&lt;/li&gt;
+  &lt;li&gt;Internet&lt;/li&gt;
+  &lt;li&gt;Battery&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;用法就像名字一样(废话)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;左下那个红框,&lt;em&gt;先介绍第一列的功能&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Clock Modulation和Chipset Clock Modulation&lt;/strong&gt; 这两个选项对一些有点岁数的CPU 会有用，我们用不着..
+&lt;strong&gt;不需要勾选!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Set Multiplier&lt;/strong&gt; 设置倍频，设到默认+1就行了
+&lt;strong&gt;不设也行&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Speed Shift EPP&lt;/strong&gt; &lt;strong&gt;非常有用!&lt;/strong&gt;
+看到左边的数字了吗,那里是可以编辑的!(想不到吧)
+&lt;strong&gt;值取一个0-255的数字,越接近0 性能越高,越接近255越节能(性能越低)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Power Saver&lt;/strong&gt; 需要勾选 Disable Turbo 才能使用，该选项确保待机频率最低以降低功耗，对较新的处理器来说用处不大，因为现代处理器有新技术降低待机功耗。比酷睿 2 更新的处理器不建议使用这个。
+&lt;strong&gt;看着办,一般不勾&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disable Turbo&lt;/strong&gt; 关闭睿频。没啥可说
+&lt;strong&gt;现在处理器最好别勾&lt;/strong&gt;(你基础频率才2G+)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BD PROCHOT&lt;/strong&gt; &lt;strong&gt;非常,非常重要和有用&lt;/strong&gt;
+在温度达到某一值的时候降低功率,俗称温度墙,就是这东西.(默认打开)
+&lt;strong&gt;有需要就关上,但并不建议关&lt;/strong&gt;
+!!!关了如果&lt;strong&gt;没有其他措施&lt;/strong&gt;会导致cpu无法自动降频,直到100度&lt;strong&gt;强制断电&lt;/strong&gt;!!!&lt;/p&gt;
+
+&lt;p&gt;Taskbar 最小化到任务栏
+&lt;strong&gt;给我关上!!!烦死了&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Log File 启用日志
+&lt;strong&gt;一般不勾(大佬勾)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Stop/Start Data 停止或开启右侧表格记录数据更新。&lt;/p&gt;
+
+&lt;p&gt;SpeedStep 也是个老古董,没必要勾,已被Shift EPP替代(除非你也是古董)
+&lt;strong&gt;如果没有Speed Shift EPP就勾&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;C1E 玄学选项,默认勾选
+&lt;strong&gt;既然默认勾就别动了&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On Top 使得 ThrottleStop 置顶（不会被其他窗口遮挡）。
+&lt;strong&gt;调试的时候才勾&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;More Data 加快右侧表格数据更新频率，从每秒更新 1 次加快到每秒更新 8 次。
+&lt;strong&gt;一般用不着&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Save 将当前设置存入 ini 文件。
+&lt;strong&gt;修改完记得按一下&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;右上红框是你CPU的数据&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;VID是当前电压&lt;/li&gt;
+  &lt;li&gt;倍数x基础频率&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;你当前cpu频率&lt;/strong&gt;(就是第二行的结果)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;自己理解那个表格&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;右下没被框的区域
+Pkg/Min/Max Power 当前/最小/最大记录到的功率。&lt;/p&gt;
+
+&lt;p&gt;Limits 可以显示 Core/GPU/Ring 降频的原因&lt;/p&gt;
+
+&lt;p&gt;FIVR 和 TPL 一会用得到&lt;/p&gt;
+
+&lt;p&gt;BCLK 重新读取校准基频读数&lt;/p&gt;
+
+&lt;p&gt;C7s C-STATE&lt;/p&gt;
+
+&lt;p&gt;DTS/Temp 切换温度显示方式
+&lt;strong&gt;DTS是距离到达CPUTJMAX的温度,TEMP是现在的温度(CPUTJMAX-DTS)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;CLR 清空数据&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;options&quot;&gt;Options&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;打开下面 Options 按钮&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1hqlkj.png&quot; alt=&quot;1hqlkj.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Profile Names 起名字&lt;/p&gt;
+
+&lt;p&gt;Notification Area 设置托盘处显示的信息
+&lt;em&gt;这里建议勾上CPU Temp&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Alarm 设置温度警报,DTS和TEMP上面讲过了&lt;/p&gt;
+
+&lt;p&gt;AC profile 插电时配置&lt;/p&gt;
+
+&lt;p&gt;Battery profile 用电池时配置。&lt;/p&gt;
+
+&lt;p&gt;Low Battery% 电池剩余电量百分比&lt;/p&gt;
+
+&lt;p&gt;Low Battery profile 到了上面的百分比,你用哪个配置&lt;/p&gt;
+
+&lt;p&gt;Do Not reset FID/VID on exit，退出不TS恢复设置
+&lt;strong&gt;建议勾上&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Battery Monitoring 在主界面上显示电池剩余电量&lt;/p&gt;
+
+&lt;p&gt;AC-On，Battery-Off 字面意思&lt;/p&gt;
+
+&lt;p&gt;Start Minimized 启动时最小化
+&lt;strong&gt;建议勾上&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Minimize on Close 
+&lt;strong&gt;建议勾上&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Add Limits Reason to Log File 在日志中记录限制原因&lt;/p&gt;
+
+&lt;p&gt;Table Grid Lines 主界面数据表格线显示&lt;/p&gt;
+
+&lt;p&gt;MHz Min 数据显示最小的单位为 MHz。&lt;/p&gt;
+
+&lt;p&gt;Nvidia GPU/AMD GPU 你用哪个勾哪个&lt;/p&gt;
+
+&lt;p&gt;Start dual IDA 老技术,不勾&lt;/p&gt;
+
+&lt;p&gt;DC exit time使用电池后几秒自动关闭TS&lt;/p&gt;
+
+&lt;p&gt;Timer Resolution计时器间隔。&lt;/p&gt;
+
+&lt;p&gt;AC Timer Res AC 计时器间隔。&lt;/p&gt;
+
+&lt;p&gt;Power Save C0% 调整 Power Saver 选项的敏感度&lt;/p&gt;
+
+&lt;p&gt;Force TDP/TDC &lt;strong&gt;不明&lt;/strong&gt;
+如果有人知道请评论区告诉我,谢谢&lt;/p&gt;
+
+&lt;p&gt;Run Program After Profile Change 指定切换为某个模式前或后所运行的第三方程序&lt;/p&gt;
+
+&lt;p&gt;Log Folder 日志文件路径&lt;/p&gt;
+
+&lt;p&gt;Hotkeys 设置各种快捷键，例如切换配置文件等&lt;/p&gt;
+
+&lt;p&gt;Defaults 还原默认设置&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;fivr最重要的部分&quot;&gt;FIVR(最重要的部分)&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1hLqR1.png&quot; alt=&quot;1hLqR1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;直接说中间那行,左边不说了.&lt;/p&gt;
+
+&lt;p&gt;上面FIVR CONTROL很好理解,就是指选择哪个组件,然后通过下面的XXX Voltage来调整&lt;/p&gt;
+
+&lt;p&gt;XXX Voltage是重点,这里为了防止你瞎改,还特意有一个”Unlock Adjustable Voltage”,必须先点了这个才能修改下面的设置&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意不要碰到那个STATIC!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不要碰那个Voltage&lt;/p&gt;
+
+&lt;p&gt;看Offset Voltage,Range是控制你调整范围,左边是降低电压,右边升高电压&lt;/p&gt;
+
+&lt;p&gt;IccMax &lt;strong&gt;不明&lt;/strong&gt;
+如果有人知道请评论区告诉我,谢谢&lt;/p&gt;
+
+&lt;p&gt;右边那行,最上面的表格应该都懂&lt;/p&gt;
+
+&lt;p&gt;Memory那行的Disable and Lock Tur bo Power Limits,要安装另外一个东西才能用,降压用不着&lt;/p&gt;
+
+&lt;p&gt;Cache Radio 设置缓存的倍频范围。&lt;/p&gt;
+
+&lt;p&gt;PowerCut 类似于 BIOS 里修改 IMON Slope/offset 通过虚假的功耗读数来超出某些处理器的功耗限制。&lt;/p&gt;
+
+&lt;p&gt;VR Faults/VR Efficiency Mode 自己查(懒得写)(反正降压用不着)&lt;/p&gt;
+
+&lt;p&gt;Save Voltages Changes to ThrottleStop.INI 选项一，不保存电压设置。选项二，关闭时保存。选项三，立即保存。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tpl&quot;&gt;TPL&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1hvVL6.png&quot; alt=&quot;1hvVL6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tur bo Boost Long Power Max 最大长时功率&lt;/p&gt;
+
+&lt;p&gt;Tur bo Boost Short Power Max 最大短时功率&lt;/p&gt;
+
+&lt;p&gt;Lock 是说在寄存器中锁定这两项,避免软件或系统对其进行修改,如果日后要解锁需要按照上边卸载和重置的流程来做
+Clamp 勾选代表任何时候都遵循此设置,不勾选时仅在睿频时起效.例如 CPU 默频 3.4G，但是在 3.4G 时仍然超过所给功率限制（例如做密集 AVX 运算），勾选 Clamp 的情况会强制 CPU 继续降频直到满足功耗限制，不勾选的话则不会。&lt;/p&gt;
+
+&lt;p&gt;PP0 就是PL4 设置&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;c7s&quot;&gt;C7s&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1hvVL6.png&quot; alt=&quot;1hvVL6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C10 分别设置 1-4 四种配置的 C-states，C0 为最高性能状态，基本上后边的数字越大越省电，相应的恢复到 C0 需要的时间也就越长。调整这里的选项可以省电降低待机温度或者相反的提高待机温度费电以获得更高的性能。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Feb 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/02/TS/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/TS/</guid>
+        
+        <category>电脑</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>CPU升(降)压教程</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#注意事项&quot; id=&quot;markdown-toc-注意事项&quot;&gt;注意事项:&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#throttlestop&quot; id=&quot;markdown-toc-throttlestop&quot;&gt;ThrottleStop&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#fivr最重要的部分&quot; id=&quot;markdown-toc-fivr最重要的部分&quot;&gt;FIVR(最重要的部分)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#设置开机自启动&quot; id=&quot;markdown-toc-设置开机自启动&quot;&gt;设置开机自启动&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#process-lasso&quot; id=&quot;markdown-toc-process-lasso&quot;&gt;Process Lasso&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;ThrottleStop&lt;/li&gt;
+    &lt;li&gt;Process Lasso&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;下载地址:
+&lt;a href=&quot;https://www.techpowerup.com/download/techpowerup-throttlestop/&quot;&gt;ThrottleStop&lt;/a&gt;
+&lt;a href=&quot;https://dl.bitsum.com/files/processlassosetup64.exe&quot;&gt;Process Lasso&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;注意事项&quot;&gt;注意事项:&lt;/h2&gt;
+
+&lt;p&gt;XTU和TS不需要用在一起&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;throttlestop&quot;&gt;ThrottleStop&lt;/h1&gt;
+
+&lt;p&gt;下载后解压到固定位置(&lt;strong&gt;不要轻易更改的路径&lt;/strong&gt;)(&lt;em&gt;例如”C:\Program File\ThrottleStop”&lt;/em&gt;)&lt;/p&gt;
+
+&lt;p&gt;然后点开ThrottleStop.exe&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1h5Vqs.png&quot; alt=&quot;主界面&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;左上第一个红框是选择配置文件,软件默认有4个配置文件&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Performance&lt;/li&gt;
+  &lt;li&gt;Game&lt;/li&gt;
+  &lt;li&gt;Internet&lt;/li&gt;
+  &lt;li&gt;Battery&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;用法就像名字一样(废话)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;把你的每个选项里的Speed Shift - EPP都勾上,从左到右分别设成0/30/128/255&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;左下那个红框,&lt;em&gt;先介绍第一列的功能&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Clock Modulation和Chipset Clock Modulation&lt;/strong&gt;
+&lt;strong&gt;不需要勾选!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Set Multiplier&lt;/strong&gt;
+&lt;strong&gt;不设也行&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Speed Shift EPP&lt;/strong&gt; &lt;strong&gt;非常有用!&lt;/strong&gt;
+看到左边的数字了吗,那里是可以编辑的!(想不到吧)
+&lt;strong&gt;值取一个0-255的数字,越接近0 性能越高,越接近255越节能(性能越低)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Power Saver&lt;/strong&gt; 需要勾选 Disable Turbo 才能使用，该选项确保待机频率最低以降低功耗，对较新的处理器来说用处不大，因为现代处理器有新技术降低待机功耗。比酷睿 2 更新的处理器不建议使用这个。
+&lt;strong&gt;看着办,一般不勾&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disable Turbo&lt;/strong&gt; 关闭睿频.没啥可说
+&lt;strong&gt;现在处理器最好别勾&lt;/strong&gt;(你基础频率才2G+)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BD PROCHOT&lt;/strong&gt; &lt;strong&gt;非常,非常重要和有用&lt;/strong&gt;
+在温度达到某一值的时候降低功率,俗称温度墙,就是这东西.(默认打开)
+&lt;strong&gt;有需要就关上,但并不建议关&lt;/strong&gt;
+!!!关了如果&lt;strong&gt;没有其他措施&lt;/strong&gt;会导致cpu无法自动降频,直到100度&lt;strong&gt;强制断电&lt;/strong&gt;!!!&lt;/p&gt;
+
+&lt;p&gt;Save 将当前设置存入 ini 文件。
+&lt;strong&gt;修改完记得按一下&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;打开下面 Options 按钮&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1hqlkj.png&quot; alt=&quot;1hqlkj.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Do Not reset FID/VID on exit，退出不TS恢复设置
+&lt;strong&gt;建议勾上&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Start Minimized 启动时最小化
+&lt;strong&gt;建议勾上&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Minimize on Close 
+&lt;strong&gt;建议勾上&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nvidia GPU/AMD GPU 你用哪个勾哪个
+&lt;strong&gt;可以不勾&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;fivr最重要的部分&quot;&gt;FIVR(最重要的部分)&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1hLqR1.png&quot; alt=&quot;1hLqR1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;直接说中间那行,左边不说了.&lt;/p&gt;
+
+&lt;p&gt;上面FIVR CONTROL很好理解,就是指选择哪个组件,然后通过下面的XXX Voltage来调整&lt;/p&gt;
+
+&lt;p&gt;XXX Voltage是重点,这里为了防止你瞎改,还特意有一个”Unlock Adjustable Voltage”,必须先点了这个才能修改下面的设置&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意不要碰到那个STATIC!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不要碰那个Voltage&lt;/p&gt;
+
+&lt;p&gt;看Offset Voltage,Range是控制你调整范围,左边是降低电压,右边升高电压&lt;/p&gt;
+
+&lt;p&gt;IccMax &lt;strong&gt;不明&lt;/strong&gt;
+如果有人知道请评论区告诉我,谢谢&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;这里需要你自己调出最适合你电脑的OFFSET VOLTAGE&lt;/strong&gt;
+&lt;strong&gt;每个CPU的质量不一样,没有统一数据&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Save Voltages Changes to ThrottleStop.INI 选项一，不保存电压设置。选项二，关闭时保存。选项三，立即保存。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;设置开机自启动&quot;&gt;设置开机自启动&lt;/h2&gt;
+
+&lt;p&gt;按一下windows(或者按搜索)输入任务计划程序&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/09/1hxD4e.png&quot; alt=&quot;1hxD4e.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;任务计划程序 - 创建基本任务&lt;/p&gt;
+
+&lt;p&gt;设置名称 - 下一步&lt;/p&gt;
+
+&lt;p&gt;希望何时开始？当用户登录时&lt;/p&gt;
+
+&lt;p&gt;希望执行什么操作？启动程序&lt;/p&gt;
+
+&lt;p&gt;程序或脚本：填入ThrottleStop.exe 的完整路径&lt;/p&gt;
+
+&lt;p&gt;勾选“当单击完成时，打开任务属性对话框”&lt;/p&gt;
+
+&lt;p&gt;勾选“使用最高权限运行”&lt;/p&gt;
+
+&lt;p&gt;条件选项卡：取消所有的勾选项，有些灰色的勾选项可以先勾选他的上层将其取消之后再取消勾选他的上层。总之不要有任何的勾选项，灰色的也不要有。&lt;/p&gt;
+
+&lt;p&gt;设置选项卡：勾选允许按需运行任务。其余全部取消勾选。&lt;/p&gt;
+
+&lt;p&gt;确定。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;process-lasso&quot;&gt;Process Lasso&lt;/h1&gt;
+
+&lt;p&gt;施工中…..&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Feb 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/02/CPU/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/CPU/</guid>
+        
+        <category>电脑</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Screen</title>
+        <description>&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;在使用ssh时虚拟一个终端,实现不间断操作&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt install screen
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;常用命令&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;screen -S 新建终端
+screen -r 进入已创建终端
+screen -ls 列出已创建终端
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;快捷键&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;Ctrl+A+D 保存并退出
+Ctrl+A+K 杀死当前终端
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Thu, 06 Feb 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/02/RPi-SCREEN/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/RPi-SCREEN/</guid>
+        
+        <category>RPi</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Arknight Tools</title>
+        <description>&lt;p&gt;https://graueneko.github.io&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Feb 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/02/ARKNIGHT/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/ARKNIGHT/</guid>
+        
+        <category>ARKNIGHT</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Linux新建服务</title>
+        <description>&lt;pre&gt;&lt;code&gt;sudo nano /lib/systemd/system/xxx.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;[Unit]
+Description=Your Service Name
+After=network.target syslog.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=Your File Path
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl daemon-reload
+systemctl start frpc.service
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Wed, 05 Feb 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/02/Linux-New-Service/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/Linux-New-Service/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>2020新年快乐</title>
+        <description>&lt;p&gt;今年也是没有年的一年哦!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 25 Jan 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/01/Festival-NewYear/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/Festival-NewYear/</guid>
+        
+        <category>Festival</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>RPi搭建DNS服务器</title>
+        <description>&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;安装&lt;/li&gt;
+    &lt;li&gt;配置dnscrypt-proxy&lt;/li&gt;
+    &lt;li&gt;将路由器默认DNS更改为RPi&lt;/li&gt;
+    &lt;li&gt;配置失败自动重启&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;安装&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install dnscrypt-proxy
+sudo apt-get install dnsutils #包含了dig什么的命令,最好装上
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;配置dnscrypt-proxy&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+listen_addresses = ['127.0.0.1:53', '192.168.0.150:53'] #按照你自己的IP改
+server_names = ['cloudflare','cloudflare-ipv6']
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;dnscrypt-proxy -resolve cloudflare-dns.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;试试行不行,没问题再做下一步安装服务&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;非常重要,不然启动服务时会绑定端口失败&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo nano /lib/systemd/system/dnscrypt-proxy.service #更改dnscrypt-proxy服务设置
+#User=_dnscrypt-proxy #注释掉源文件这一行
+User=root #新加这一行,让它以root身份运行(好像不怎么安全..哈哈不管了)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;启动服务试试吧!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo systemctl enable dnscrypt-proxy
+sudo systemctl start dnscrypt-proxy
+sudo systemctl status dnscrypt-proxy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;将路由器默认DNS更改为RPi&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;略略略!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;自己百度,只有一点要注意,就是要改的地方是DHCP的,不是WAN口DNS!!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;参考网址&quot;&gt;参考网址&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/&quot;&gt;couldflare&lt;/a&gt;
+&lt;a href=&quot;https://github.com/DNSCrypt/dnscrypt-proxy/wiki/installation#setting-up-dnscrypt-proxy&quot;&gt;DNScrypt-proxy&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 26 Dec 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/12/RPi/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/RPi/</guid>
+        
+        <category>RPi</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>2019年圣诞快乐</title>
+        <description>
+</description>
+        <pubDate>Wed, 25 Dec 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/12/Festival-Christ/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/Festival-Christ/</guid>
+        
+        <category>Festival</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
