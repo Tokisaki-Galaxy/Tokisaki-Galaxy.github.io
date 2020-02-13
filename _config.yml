@@ -26,7 +26,6 @@ social:
     mail: 1341281757@qq.com
 
 live2d:
-   enable: true
    live2d_widget: https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/waifu/autoload.js
 
 
