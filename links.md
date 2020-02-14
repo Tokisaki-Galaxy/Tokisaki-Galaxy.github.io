@@ -5,7 +5,6 @@ title: 友情链接
 
 
  <style>
-
             #links{
                margin-top: 5rem;
             }
@@ -74,9 +73,9 @@ title: 友情链接
                 overflow: hidden;
                 white-space: nowrap;
             }
-        </style>
+</style>
+
  <style>
-
             #links{
                margin-top: 5rem;
             }
@@ -145,10 +144,10 @@ title: 友情链接
                 overflow: hidden;
                 white-space: nowrap;
             }
-        </style>
+/style>
 
 <div class="links-content">
-    <div class="link-navigation">               
+<div class="link-navigation">
 
 <div class="card">
     <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
@@ -158,7 +157,6 @@ title: 友情链接
             <a href="https://tokisakigalaxy.xyz/" target="_blank"><span class="focus-links">关注</span></a>
         </div>
         <div class="info">僕らの手には何もないけど,かわりに　つなぎあえるから</div>
-        </div>
     </div>
 </div>
 
@@ -170,12 +168,11 @@ title: 友情链接
             <a href="https://puppetsheep.cn/" target="_blank"><span class="focus-links">关注</span></a>
         </div>
         <div class="info">May the love be with you always</div>
-        </div>
     </div>
 </div>
-            
-</div>
 
+
+</div>
 <div class="note primary">将本站加入友链后联系我可以互加友链<br>名称：Evil-Binary<br>介绍：僕らの手には何もないけど,かわりに　つなぎあえるから<br>地址：<a href="https://tokisakigalaxy.xyz/">https://tokisakigalaxy.xyz/</a><br>图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a><br></div>
 
 {% include comments.html %}
