@@ -146,8 +146,9 @@ title: 友情链接
                 white-space: nowrap;
             }
         </style>
- <div class="links-content">
-            <div class="link-navigation">               
+
+<div class="links-content">
+    <div class="link-navigation">               
 
 <div class="card">
     <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
@@ -173,25 +174,8 @@ title: 友情链接
     </div>
 </div>
             
-            
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-</script>
+</div>
+
+<div class="note primary">将本站加入友链后联系我可以互加友链<br>名称：Evil-Binary<br>介绍：僕らの手には何もないけど,かわりに　つなぎあえるから<br>地址：<a href="https://tokisakigalaxy.xyz/">https://tokisakigalaxy.xyz/</a><br>图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a><br></div>
 
 {% include comments.html %}
