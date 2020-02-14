@@ -171,8 +171,6 @@ title: 友情链接
             </div>
         </div>
 
-    
-
         <div class="card">
             <img class="ava" src="https://secure.gravatar.com/avatar/080e65100e6a5bd74893df4fc3bdb198?s=100&d=mm&r=g">
             <div class="card-header">
@@ -183,8 +181,6 @@ title: 友情链接
                <div class="info">技术加点创意</div>
             </div>
         </div>
-
-    
 
         <div class="card">
             <img class="ava" src="https://avatars2.githubusercontent.com/u/32725281?s=460&v=4">
@@ -198,15 +194,27 @@ title: 友情链接
         </div>
 
         <div class="card">
-        <img class="ava" src="https://puppetsheep.cn/images/icons/icon_192.png">
-            <div class="card-header">
-                <div>
-                    <a href="https://puppetsheep.cn/" target="_blank"> 灵魂只应独行</a>
-                    <a href="https://puppetsheep.cn/" target="_blank"><span class="focus-links">关注</span></a>
+            <img class="ava" src="https://puppetsheep.cn/images/icons/icon_192.png">
+                <div class="card-header">
+                    <div>
+                        <a href="https://puppetsheep.cn/" target="_blank"> 灵魂只应独行</a>
+                        <a href="https://puppetsheep.cn/" target="_blank"><span class="focus-links">关注</span></a>
+                    </div>
+                <div class="info">May the love be with you always</div>
                 </div>
-            <div class="info">May the love be with you always</div>
             </div>
-        </div>
+
+            <div class="card">
+                <img class="ava" src="https://www.tsinghuamakerxian.cn/blog/img/sidebar-avatar.jpg">
+                    <div class="card-header">
+                        <div>
+                            <a href="https://www.tsinghuamakerxian.cn/" target="_blank"> NaiveTomcat</a>
+                            <a href="https://www.tsinghuamakerxian.cn/" target="_blank"><span class="focus-links">关注</span></a>
+                        </div>
+                    <div class="info">May the love be with you always</div>
+                    </div>
+                </div>
+
 
     </div>
 </div>
