@@ -1,10 +1,9 @@
 ---
 layout: page
 title: 关于我 
+{% include cloud-music.html %}
 music-id: 32288085
 ---
-
-{% include cloud-music.html %}
 
 一个初学者，喜欢研究一些新技术。
 
