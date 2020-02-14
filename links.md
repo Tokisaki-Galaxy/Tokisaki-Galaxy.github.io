@@ -196,7 +196,7 @@ title: 友情链接
                <div class="info">初级前端</div>
             </div>
         </div>
-        
+
         <div class="card">
         <img class="ava" src="https://puppetsheep.cn/images/icons/icon_192.png">
             <div class="card-header">
@@ -217,7 +217,7 @@ title: 友情链接
 
 > 介绍：僕らの手には何もないけど,かわりに　つなぎあえるから
 
-> 地址：<a href="https://tokisakigalaxy.xyz/">https://tokisakigalaxy.xyz/</a>
+> 地址：[https://evil-binary.github.io/](https://evil-binary.github.io/)
 
 > 图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a>
 
