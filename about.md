@@ -1,7 +1,6 @@
 ---
 layout: page
 title: 关于我 
-{% include cloud-music.html %}
 music-id: 32288085
 ---
 
