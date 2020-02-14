@@ -150,16 +150,53 @@ title: 友情链接
     <div class="link-navigation">
 
         <div class="card">
-        <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
+            <img class="ava" src="https://i.loli.net/2019/07/27/5d3bf538d0c1e60286.jpg">
             <div class="card-header">
-                <div>
-                    <a href="https://tokisakigalaxy.xyz/" target="_blank"> Evil-Binary</a>
-                    <a href="https://tokisakigalaxy.xyz/" target="_blank"><span class="focus-links">关注</span></a>
-                </div>
-            <div class="info">僕らの手には何もないけど,かわりに　つなぎあえるから</div>
+               <div>
+                  <a href="https://onetuzi.cn/" target="_blank"> Rabbit's Blog</a>
+                  <a href="https://onetuzi.cn/" target="_blank"><span class="focus-links">关注</span></a>
+               </div>
+               <div class="info">♥愿有一天能和你最重要的人重逢</div>
             </div>
         </div>
 
+        <div class="card">
+            <img class="ava" src="https://cdn.dode.top/avatar.png?imageMogr2/thumbnail/128x128/format/png/blur/1x0/quality/75|imageslim">
+            <div class="card-header">
+               <div>
+                  <a href="https://blog.ihoey.com" target="_blank"> 梦魇小栈</a>
+                  <a href="https://blog.ihoey.com" target="_blank"><span class="focus-links">关注</span></a>
+               </div>
+               <div class="info">心，若没有栖息的地方，到哪里都是流浪......</div>
+            </div>
+        </div>
+
+    
+
+        <div class="card">
+            <img class="ava" src="https://secure.gravatar.com/avatar/080e65100e6a5bd74893df4fc3bdb198?s=100&d=mm&r=g">
+            <div class="card-header">
+               <div>
+                  <a href="https://eyhn.in" target="_blank"> EYHN</a>
+                  <a href="https://eyhn.in" target="_blank"><span class="focus-links">关注</span></a>
+               </div>
+               <div class="info">技术加点创意</div>
+            </div>
+        </div>
+
+    
+
+        <div class="card">
+            <img class="ava" src="https://avatars2.githubusercontent.com/u/32725281?s=460&v=4">
+            <div class="card-header">
+               <div>
+                  <a href="https://zhangpeng2k.github.io" target="_blank"> zhangpeng2k</a>
+                  <a href="https://zhangpeng2k.github.io" target="_blank"><span class="focus-links">关注</span></a>
+               </div>
+               <div class="info">初级前端</div>
+            </div>
+        </div>
+        
         <div class="card">
         <img class="ava" src="https://puppetsheep.cn/images/icons/icon_192.png">
             <div class="card-header">
@@ -182,7 +219,7 @@ title: 友情链接
 
 > 地址：<a href="https://tokisakigalaxy.xyz/">https://tokisakigalaxy.xyz/</a>
 
-> 图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a><br></div>
+> 图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a>
 
 
 {% include comments.html %}
