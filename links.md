@@ -173,6 +173,16 @@ title: 友情链接
 
 
 </div>
-<div class="note primary">将本站加入友链后联系我可以互加友链<br>名称：Evil-Binary<br>介绍：僕らの手には何もないけど,かわりに　つなぎあえるから<br>地址：<a href="https://tokisakigalaxy.xyz/">https://tokisakigalaxy.xyz/</a><br>图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a><br></div>
+
+> 将本站加入友链后联系我可以互加友链
+
+> 名称：Evil-Binary
+
+> 介绍：僕らの手には何もないけど,かわりに　つなぎあえるから
+
+> 地址：<a href="https://tokisakigalaxy.xyz/">https://tokisakigalaxy.xyz/</a>
+
+> 图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a><br></div>
+
 
 {% include comments.html %}
