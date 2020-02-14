@@ -22,16 +22,7 @@ music-id: 32288085
 
 ## 友情链接 
 
-<div class="card">
-                        <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
-                        <div class="card-header">
-                           <div>
-                              <a href="https://tokisakigalaxy.xyz/" target="_blank"> Evil-Binary</a>
-                              <a href="https://tokisakigalaxy.xyz/" target="_blank"><span class="focus-links">关注</span></a>
-                           </div>
-                           <div class="info">僕らの手には何もないけど,かわりに　つなぎあえるから</div>
-                        </div>
-                    </div>
+[![灵魂只应独行](https://puppetsheep.cn/images/icons/icon_192.png 300x300)](https://puppetsheep.cn/)
 
 
 {% include comments.html %}
