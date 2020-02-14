@@ -22,7 +22,7 @@ music-id: 32288085
 
 ## 友情链接 
 
-[![灵魂只应独行](https://puppetsheep.cn/images/icons/icon_192.png)](https://puppetsheep.cn/)
+[![灵魂只应独行](https://puppetsheep.cn/images/icons/icon_192.png 300x300)](https://puppetsheep.cn/)
 
 
 {% include comments.html %}
