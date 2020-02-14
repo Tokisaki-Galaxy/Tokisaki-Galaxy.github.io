@@ -147,31 +147,31 @@ title: 友情链接
 /style>
 
 <div class="links-content">
-<div class="link-navigation">
+    <div class="link-navigation">
 
-<div class="card">
-    <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
-    <div class="card-header">
-        <div>
-            <a href="https://tokisakigalaxy.xyz/" target="_blank"> Evil-Binary</a>
-            <a href="https://tokisakigalaxy.xyz/" target="_blank"><span class="focus-links">关注</span></a>
+        <div class="card">
+        <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
+            <div class="card-header">
+                <div>
+                    <a href="https://tokisakigalaxy.xyz/" target="_blank"> Evil-Binary</a>
+                    <a href="https://tokisakigalaxy.xyz/" target="_blank"><span class="focus-links">关注</span></a>
+                </div>
+            <div class="info">僕らの手には何もないけど,かわりに　つなぎあえるから</div>
+            </div>
         </div>
-        <div class="info">僕らの手には何もないけど,かわりに　つなぎあえるから</div>
-    </div>
-</div>
 
-<div class="card">
-    <img class="ava" src="https://puppetsheep.cn/images/icons/icon_192.png">
-    <div class="card-header">
-        <div>
-            <a href="https://puppetsheep.cn/" target="_blank"> 灵魂只应独行</a>
-            <a href="https://puppetsheep.cn/" target="_blank"><span class="focus-links">关注</span></a>
+        <div class="card">
+        <img class="ava" src="https://puppetsheep.cn/images/icons/icon_192.png">
+            <div class="card-header">
+                <div>
+                    <a href="https://puppetsheep.cn/" target="_blank"> 灵魂只应独行</a>
+                    <a href="https://puppetsheep.cn/" target="_blank"><span class="focus-links">关注</span></a>
+                </div>
+            <div class="info">May the love be with you always</div>
+            </div>
         </div>
-        <div class="info">May the love be with you always</div>
-    </div>
-</div>
 
-</div>
+    </div>
 </div>
 
 > 将本站加入友链后联系我可以互加友链
