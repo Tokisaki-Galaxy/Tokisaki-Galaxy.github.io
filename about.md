@@ -18,11 +18,11 @@ music-id: 32288085
 这个网站是基于<a target="_blank" href='https://github.com/leopardpan/leopardpan.github.io/'>leopardpan</a>修改的,感谢模板作者潘柏信(leopardpan)
 
 
-如果你想搭建一个和这样一样的博客，可以看 <a href="leopardpan.github.io/2016/10/jekyll_tutorials1/"> Jekyll 搭建个人博客 </a>教程
+如果你想搭建一个和这样一样的博客，可以看 <a href="https://leopardpan.github.io/2016/10/jekyll_tutorials1/"> Jekyll 搭建个人博客 </a>教程
 
 ## 友情链接 
 
-[![灵魂只应独行](https://puppetsheep.cn/images/icons/icon_192.png 300x300)](https://puppetsheep.cn/)
+[![灵魂只应独行](https://puppetsheep.cn/images/icons/icon_192.png)](https://puppetsheep.cn/)
 
 
 {% include comments.html %}
