@@ -4,6 +4,8 @@ title: 关于我
 music-id: 32288085
 ---
 
+{% include cloud-music.html %}
+
 一个初学者，喜欢研究一些新技术。
 
 平时喜欢整理个人博客，逛逛技术论坛。
@@ -20,10 +22,5 @@ music-id: 32288085
 
 如果你想搭建一个和这样一样的博客，可以看 <a href="https://leopardpan.github.io/2016/10/jekyll_tutorials1/"> Jekyll 搭建个人博客 </a>教程
 
-## 友情链接 
-
-[<img src="https://puppetsheep.cn/images/icons/icon_192.png" width="200" height="200" alt="灵魂只应独行" />](https://puppetsheep.cn/)
-
 
 {% include comments.html %}
-
