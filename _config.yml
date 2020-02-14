@@ -56,8 +56,8 @@ nav:
     - {title: 所有文章, description: archive, url: '/archive'}
     - {title: 标签, description: tags, url: '/tags'}
     #- {title: 所有文章, description: tags, url: '/tags'}
-    - {title: 友情链接, description: links, url: '/links'}
     - {title: 关于我, description: about, url: '/about'}
+    - {title: 友情链接, description: links, url: '/links'}
     
 
 # Pagination
