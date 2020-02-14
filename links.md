@@ -3,9 +3,6 @@ layout: page
 title: 友情链接
 ---
 
-<center class="half">
-    <a href="https://puppetsheep.cn/"><img src="https://puppetsheep.cn/images/icons/icon_192.png" width="100" height="100" alt="灵魂只应独行" /></a><a href="https://puppetsheep.cn/"><img src="https://puppetsheep.cn/images/icons/icon_192.png" width="100" height="100" alt="灵魂只应独行" /></a>
-</center>
 
  <style>
 
@@ -152,17 +149,29 @@ title: 友情链接
  <div class="links-content">
             <div class="link-navigation">               
 
- <div class="card">
-                        <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
-                        <div class="card-header">
-                           <div>
-                              <a href="https://tokisakigalaxy.xyz/" target="_blank"> Evil-Binary</a>
-                              <a href="https://tokisakigalaxy.xyz/" target="_blank"><span class="focus-links">关注</span></a>
-                           </div>
-                           <div class="info">僕らの手には何もないけど,かわりに　つなぎあえるから</div>
-                        </div>
-                    </div>
-            </div>
+<div class="card">
+    <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
+    <div class="card-header">
+        <div>
+            <a href="https://tokisakigalaxy.xyz/" target="_blank"> Evil-Binary</a>
+            <a href="https://tokisakigalaxy.xyz/" target="_blank"><span class="focus-links">关注</span></a>
+        </div>
+        <div class="info">僕らの手には何もないけど,かわりに　つなぎあえるから</div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <img class="ava" src="https://puppetsheep.cn/images/icons/icon_192.png">
+    <div class="card-header">
+        <div>
+            <a href="https://puppetsheep.cn/" target="_blank"> 灵魂只应独行</a>
+            <a href="https://puppetsheep.cn/" target="_blank"><span class="focus-links">关注</span></a>
+        </div>
+        <div class="info">May the love be with you always</div>
+        </div>
+    </div>
+</div>
             
             
 <script>
