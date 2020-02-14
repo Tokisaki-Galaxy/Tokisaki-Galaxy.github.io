@@ -7,7 +7,7 @@ title: 友情链接
     <a href="https://puppetsheep.cn/"><img src="https://puppetsheep.cn/images/icons/icon_192.png" width="100" height="100" alt="灵魂只应独行" /></a><a href="https://puppetsheep.cn/"><img src="https://puppetsheep.cn/images/icons/icon_192.png" width="100" height="100" alt="灵魂只应独行" /></a>
 </center>
 
-        <style>
+ <style>
 
             #links{
                margin-top: 5rem;
@@ -78,7 +78,7 @@ title: 友情链接
                 white-space: nowrap;
             }
         </style>
-                <style>
+ <style>
 
             #links{
                margin-top: 5rem;
@@ -149,10 +149,10 @@ title: 友情链接
                 white-space: nowrap;
             }
         </style>
-        <div class="links-content">
+ <div class="links-content">
             <div class="link-navigation">               
 
-                    <div class="card">
+ <div class="card">
                         <img class="ava" src="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">
                         <div class="card-header">
                            <div>
