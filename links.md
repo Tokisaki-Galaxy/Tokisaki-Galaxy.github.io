@@ -144,7 +144,7 @@ title: 友情链接
                 overflow: hidden;
                 white-space: nowrap;
             }
-/style>
+</style>
 
 <div class="links-content">
     <div class="link-navigation">
