@@ -205,7 +205,7 @@ title: 友情链接
             </div>
 
             <div class="card">
-                <img class="ava" src="https://www.tsinghuamakerxian.cn/blog/img/sidebar-avatar.jpg">
+                <img class="ava" src="https://cdn.jsdelivr.net/gh/NaiveTomcat/blog/img/sidebar-avatar.jpg">
                     <div class="card-header">
                         <div>
                             <a href="https://www.tsinghuamakerxian.cn/" target="_blank"> NaiveTomcat</a>
