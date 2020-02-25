@@ -150,7 +150,7 @@ title: 友情链接
     <div class="link-navigation">
 
         <div class="card">
-            <img class="ava" src="https://i.loli.net/2019/07/27/5d3bf538d0c1e60286.jpg">
+            <img class="ava" src="https://home.edgeless.top/img/pay.png">
             <div class="card-header">
                <div>
                   <a href="https://home.edgeless.top/" target="_blank">EDGELESS</a>
