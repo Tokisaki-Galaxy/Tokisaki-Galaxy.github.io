@@ -14,11 +14,6 @@ kramdown:
   input:  GFM
   syntax_highlighter: coderay
 
-# Comment
-# comment:
-#    disqus: leopard
-#    uyan: 2143225  # 有言id,登录有言官网申请
-
 # Social
 social:
     weibo:  None
@@ -28,14 +23,6 @@ social:
 # 百度统计
 baidu:
     id: 0a48d79fedad2ce3fc57ac576c11931b
-
-# Google Analytics
-# 使用博客模板请去掉或者更换 id
-# 已去除
-#ga:
-#    id: UA-157552051-1
-#    host: auto  
-# 悄悄告诉你还可以设GoogleAds哦
 
 permalink: /:year/:month/:title/
 # Format
