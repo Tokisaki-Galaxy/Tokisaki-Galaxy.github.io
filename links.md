@@ -167,7 +167,7 @@ title: 友情链接
                   <a href="https://flymc.top/" target="_blank">夏·祈·楓</a>
                   <a href="https://flymc.top/" target="_blank"><span class="focus-links">关注</span></a>
                </div>
-               <div class="info">夏·祈·楓</div>
+               <div class="info">Zaphkiel,Zayin!</div>
             </div>
         </div>
         
