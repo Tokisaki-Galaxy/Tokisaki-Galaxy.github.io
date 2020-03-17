@@ -159,6 +159,17 @@ title: 友情链接
                <div class="info">强大而优雅的PE工具</div>
             </div>
         </div>
+
+        <div class="card">
+            <img class="ava" src="https://cdn.jsdelivr.net/gh/Nastsuki-Kaede/Blog-Resources/icon/favicon.ico">
+            <div class="card-header">
+               <div>
+                  <a href="https://flymc.top/" target="_blank">夏·祈·楓</a>
+                  <a href="https://flymc.top/" target="_blank"><span class="focus-links">关注</span></a>
+               </div>
+               <div class="info">夏·祈·楓</div>
+            </div>
+        </div>
         
         <div class="card">
             <img class="ava" src="https://i.loli.net/2019/07/27/5d3bf538d0c1e60286.jpg">
