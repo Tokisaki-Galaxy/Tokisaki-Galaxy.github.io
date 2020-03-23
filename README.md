@@ -1,2 +1,1 @@
-# evil-binary.github.io
-博客
+# tokisaki-galaxy.github.io
