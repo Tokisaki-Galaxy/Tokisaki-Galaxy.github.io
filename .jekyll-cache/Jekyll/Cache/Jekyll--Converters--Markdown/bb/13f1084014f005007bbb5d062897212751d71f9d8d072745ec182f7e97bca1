@@ -1,0 +1,235 @@
+I":<ul id="markdown-toc">
+  <li><a href="#throttlestop配置" id="markdown-toc-throttlestop配置">ThrottleStop配置</a>    <ul>
+      <li><a href="#options" id="markdown-toc-options">Options</a></li>
+      <li><a href="#fivr最重要的部分" id="markdown-toc-fivr最重要的部分">FIVR(最重要的部分)</a></li>
+      <li><a href="#tpl" id="markdown-toc-tpl">TPL</a></li>
+      <li><a href="#c7s" id="markdown-toc-c7s">C7s</a></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <ul>
+    <li>ThrottleStop</li>
+  </ul>
+</blockquote>
+
+<p>下载地址:
+<a href="https://www.techpowerup.com/download/techpowerup-throttlestop/">ThrottleStop</a></p>
+
+<h1 id="throttlestop配置">ThrottleStop配置</h1>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1h5Vqs.png" alt="主界面" /></p>
+
+<p>左上第一个红框是选择配置文件,软件默认有4个配置文件</p>
+
+<ol>
+  <li>Performance</li>
+  <li>Game</li>
+  <li>Internet</li>
+  <li>Battery</li>
+</ol>
+
+<p><strong>用法就像名字一样(废话)</strong></p>
+
+<hr />
+
+<p>左下那个红框,<em>先介绍第一列的功能</em></p>
+
+<p><strong>Clock Modulation和Chipset Clock Modulation</strong> 这两个选项对一些有点岁数的CPU 会有用，我们用不着..
+<strong>不需要勾选!</strong></p>
+
+<p><strong>Set Multiplier</strong> 设置倍频，设到默认+1就行了
+<strong>不设也行</strong></p>
+
+<p><strong>Speed Shift EPP</strong> <strong>非常有用!</strong>
+看到左边的数字了吗,那里是可以编辑的!(想不到吧)
+<strong>值取一个0-255的数字,越接近0 性能越高,越接近255越节能(性能越低)</strong></p>
+
+<p><strong>Power Saver</strong> 需要勾选 Disable Turbo 才能使用，该选项确保待机频率最低以降低功耗，对较新的处理器来说用处不大，因为现代处理器有新技术降低待机功耗。比酷睿 2 更新的处理器不建议使用这个。
+<strong>看着办,一般不勾</strong></p>
+
+<p><strong>Disable Turbo</strong> 关闭睿频。没啥可说
+<strong>现在处理器最好别勾</strong>(你基础频率才2G+)</p>
+
+<p><strong>BD PROCHOT</strong> <strong>非常,非常重要和有用</strong>
+在温度达到某一值的时候降低功率,俗称温度墙,就是这东西.(默认打开)
+<strong>有需要就关上,但并不建议关</strong>
+!!!关了如果<strong>没有其他措施</strong>会导致cpu无法自动降频,直到100度<strong>强制断电</strong>!!!</p>
+
+<p>Taskbar 最小化到任务栏
+<strong>给我关上!!!烦死了</strong></p>
+
+<p>Log File 启用日志
+<strong>一般不勾(大佬勾)</strong></p>
+
+<p>Stop/Start Data 停止或开启右侧表格记录数据更新。</p>
+
+<p>SpeedStep 也是个老古董,没必要勾,已被Shift EPP替代(除非你也是古董)
+<strong>如果没有Speed Shift EPP就勾</strong></p>
+
+<p>C1E 玄学选项,默认勾选
+<strong>既然默认勾就别动了</strong></p>
+
+<p>On Top 使得 ThrottleStop 置顶（不会被其他窗口遮挡）。
+<strong>调试的时候才勾</strong></p>
+
+<p>More Data 加快右侧表格数据更新频率，从每秒更新 1 次加快到每秒更新 8 次。
+<strong>一般用不着</strong></p>
+
+<p>Save 将当前设置存入 ini 文件。
+<strong>修改完记得按一下</strong></p>
+
+<hr />
+
+<p>右上红框是你CPU的数据</p>
+
+<ol>
+  <li>VID是当前电压</li>
+  <li>倍数x基础频率</li>
+  <li><strong>你当前cpu频率</strong>(就是第二行的结果)</li>
+</ol>
+
+<hr />
+
+<p>自己理解那个表格</p>
+
+<hr />
+
+<p>右下没被框的区域
+Pkg/Min/Max Power 当前/最小/最大记录到的功率。</p>
+
+<p>Limits 可以显示 Core/GPU/Ring 降频的原因</p>
+
+<p>FIVR 和 TPL 一会用得到</p>
+
+<p>BCLK 重新读取校准基频读数</p>
+
+<p>C7s C-STATE</p>
+
+<p>DTS/Temp 切换温度显示方式
+<strong>DTS是距离到达CPUTJMAX的温度,TEMP是现在的温度(CPUTJMAX-DTS)</strong></p>
+
+<p>CLR 清空数据</p>
+
+<hr />
+
+<h2 id="options">Options</h2>
+
+<p><strong>打开下面 Options 按钮</strong></p>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hqlkj.png" alt="1hqlkj.png" /></p>
+
+<p>Profile Names 起名字</p>
+
+<p>Notification Area 设置托盘处显示的信息
+<em>这里建议勾上CPU Temp</em></p>
+
+<p>Alarm 设置温度警报,DTS和TEMP上面讲过了</p>
+
+<p>AC profile 插电时配置</p>
+
+<p>Battery profile 用电池时配置。</p>
+
+<p>Low Battery% 电池剩余电量百分比</p>
+
+<p>Low Battery profile 到了上面的百分比,你用哪个配置</p>
+
+<p>Do Not reset FID/VID on exit，退出不TS恢复设置
+<strong>建议勾上</strong></p>
+
+<p>Battery Monitoring 在主界面上显示电池剩余电量</p>
+
+<p>AC-On，Battery-Off 字面意思</p>
+
+<p>Start Minimized 启动时最小化
+<strong>建议勾上</strong></p>
+
+<p>Minimize on Close 
+<strong>建议勾上</strong></p>
+
+<p>Add Limits Reason to Log File 在日志中记录限制原因</p>
+
+<p>Table Grid Lines 主界面数据表格线显示</p>
+
+<p>MHz Min 数据显示最小的单位为 MHz。</p>
+
+<p>Nvidia GPU/AMD GPU 你用哪个勾哪个</p>
+
+<p>Start dual IDA 老技术,不勾</p>
+
+<p>DC exit time使用电池后几秒自动关闭TS</p>
+
+<p>Timer Resolution计时器间隔。</p>
+
+<p>AC Timer Res AC 计时器间隔。</p>
+
+<p>Power Save C0% 调整 Power Saver 选项的敏感度</p>
+
+<p>Force TDP/TDC <strong>不明</strong>
+如果有人知道请评论区告诉我,谢谢</p>
+
+<p>Run Program After Profile Change 指定切换为某个模式前或后所运行的第三方程序</p>
+
+<p>Log Folder 日志文件路径</p>
+
+<p>Hotkeys 设置各种快捷键，例如切换配置文件等</p>
+
+<p>Defaults 还原默认设置</p>
+
+<hr />
+
+<h2 id="fivr最重要的部分">FIVR(最重要的部分)</h2>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hLqR1.png" alt="1hLqR1.png" /></p>
+
+<p>直接说中间那行,左边不说了.</p>
+
+<p>上面FIVR CONTROL很好理解,就是指选择哪个组件,然后通过下面的XXX Voltage来调整</p>
+
+<p>XXX Voltage是重点,这里为了防止你瞎改,还特意有一个”Unlock Adjustable Voltage”,必须先点了这个才能修改下面的设置</p>
+
+<p><strong>注意不要碰到那个STATIC!</strong></p>
+
+<p>不要碰那个Voltage</p>
+
+<p>看Offset Voltage,Range是控制你调整范围,左边是降低电压,右边升高电压</p>
+
+<p>IccMax <strong>不明</strong>
+如果有人知道请评论区告诉我,谢谢</p>
+
+<p>右边那行,最上面的表格应该都懂</p>
+
+<p>Memory那行的Disable and Lock Tur bo Power Limits,要安装另外一个东西才能用,降压用不着</p>
+
+<p>Cache Radio 设置缓存的倍频范围。</p>
+
+<p>PowerCut 类似于 BIOS 里修改 IMON Slope/offset 通过虚假的功耗读数来超出某些处理器的功耗限制。</p>
+
+<p>VR Faults/VR Efficiency Mode 自己查(懒得写)(反正降压用不着)</p>
+
+<p>Save Voltages Changes to ThrottleStop.INI 选项一，不保存电压设置。选项二，关闭时保存。选项三，立即保存。</p>
+
+<hr />
+
+<h2 id="tpl">TPL</h2>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hvVL6.png" alt="1hvVL6.png" /></p>
+
+<p>Tur bo Boost Long Power Max 最大长时功率</p>
+
+<p>Tur bo Boost Short Power Max 最大短时功率</p>
+
+<p>Lock 是说在寄存器中锁定这两项,避免软件或系统对其进行修改,如果日后要解锁需要按照上边卸载和重置的流程来做
+Clamp 勾选代表任何时候都遵循此设置,不勾选时仅在睿频时起效.例如 CPU 默频 3.4G，但是在 3.4G 时仍然超过所给功率限制（例如做密集 AVX 运算），勾选 Clamp 的情况会强制 CPU 继续降频直到满足功耗限制，不勾选的话则不会。</p>
+
+<p>PP0 就是PL4 设置</p>
+
+<hr />
+
+<h2 id="c7s">C7s</h2>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hvVL6.png" alt="1hvVL6.png" /></p>
+
+<p>C10 分别设置 1-4 四种配置的 C-states，C0 为最高性能状态，基本上后边的数字越大越省电，相应的恢复到 C0 需要的时间也就越长。调整这里的选项可以省电降低待机温度或者相反的提高待机温度费电以获得更高的性能。</p>
+:ET

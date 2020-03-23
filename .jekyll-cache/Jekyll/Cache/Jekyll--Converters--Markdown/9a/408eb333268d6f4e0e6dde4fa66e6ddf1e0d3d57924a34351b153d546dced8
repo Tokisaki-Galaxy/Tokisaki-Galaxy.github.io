@@ -1,0 +1,35 @@
+I"9<h1 id="树莓派3b国内软件源">树莓派3B国内软件源</h1>
+
+<hr />
+
+<h2 id="先使用官方源进行一次update">先使用官方源进行一次update</h2>
+
+<h2 id="查看系统版本非常重要">查看系统版本(非常重要)</h2>
+
+<pre><code>lsb_release -c
+</code></pre>
+
+<h2 id="换源">换源</h2>
+
+<pre><code>sudo nano /etc/apt/sources.list
+deb https://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free
+#deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+sudo nano /etc/apt/sources.list.d/raspi.list
+deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ buster main ui
+deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
+#deb http://archive.raspberrypi.org/debian/ buster main
+</code></pre>
+
+<h2 id="更新">更新</h2>
+
+<pre><code>sudo apt update
+sudo apt upgrade
+sudo apt dist-upgrade
+</code></pre>
+<blockquote>
+  <p>加个新架构</p>
+  <pre><code>dpkg --add-architecture arm
+</code></pre>
+</blockquote>
+:ET

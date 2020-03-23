@@ -1,0 +1,78 @@
+I"�<blockquote>
+  <ul>
+    <li>Git基本配置</li>
+    <li>免密码</li>
+  </ul>
+</blockquote>
+
+<hr />
+
+<p>内容可能不是最新的,参见 <a href="https://help.github.com/cn/github">官方手册</a></p>
+
+<hr />
+
+<blockquote>
+  <p>使用git config 在本地配置信息</p>
+</blockquote>
+
+<pre><code>git config --global user.name "用户名"
+git config --global user.email "用户的邮箱名"
+</code></pre>
+<blockquote>
+  <p>初始化</p>
+  <pre><code>git init
+</code></pre>
+  <p>提交</p>
+  <pre><code>git add -A
+git commit -m "xxx"
+git push
+</code></pre>
+</blockquote>
+
+<h1 id="免密码">免密码</h1>
+<hr />
+
+<h2 id="i推荐使用ssh链接只对单项目有效">I.(推荐)使用SSH链接(只对单项目有效)</h2>
+
+<blockquote>
+  <p>生成密钥对</p>
+  <pre><code>ssh-keygen -t rsa -C "xxx"
+</code></pre>
+  <p>切换到ssh目录</p>
+  <pre><code>cd ~/.ssh
+cd c:\users\%username%\.ssh
+</code></pre>
+  <pre><code>type id_ras.pub
+cat id_ras.pub
+</code></pre>
+  <p>复制到Github
+运行测试</p>
+  <pre><code>ssh -T git@github-mult.com 
+</code></pre>
+  <p>如果有hi xxx就说明ssh配置完成</p>
+</blockquote>
+
+<hr />
+
+<p>关于项目的配置</p>
+<pre><code>git remote -v
+</code></pre>
+<p>如果为https,就执行</p>
+<pre><code>git remote rm origin
+</code></pre>
+<p>删除https链接方式</p>
+
+<p>改成</p>
+<pre><code>git remote add origin 项目的SSH地址
+</code></pre>
+<pre><code>git push --set-upstream origin master
+</code></pre>
+
+<h2 id="ii保存密码对全部项目有效可能不安全">II.保存密码(对全部项目有效)(可能不安全)</h2>
+
+<pre><code>git config --global credential.helper store
+</code></pre>
+<p>在c:\users\%username%创建文本文件.git-credentials</p>
+<pre><code>https:{username}:{password}@github.com
+</code></pre>
+:ET

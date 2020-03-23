@@ -1,0 +1,26 @@
+I"�<blockquote>
+  <ul>
+    <li>在使用ssh时虚拟一个终端,实现不间断操作</li>
+  </ul>
+</blockquote>
+
+<pre><code>sudo apt install screen
+</code></pre>
+
+<blockquote>
+  <p>常用命令</p>
+</blockquote>
+
+<pre><code>screen -S 新建终端
+screen -r 进入已创建终端
+screen -ls 列出已创建终端
+</code></pre>
+
+<blockquote>
+  <p>快捷键</p>
+</blockquote>
+
+<pre><code>Ctrl+A+D 保存并退出
+Ctrl+A+K 杀死当前终端
+</code></pre>
+:ET

@@ -1,0 +1,34 @@
+I"�<pre><code>int i_max(int a[]) {
+	int tmp=a[0];
+	for (int i = 0; i &lt; sizeof(a) / sizeof(a[0]); i++)
+		if (tmp &lt; a[i])
+			tmp = a[i];
+//		tmp &lt; a[i] ? tmp = a[i] : tmp = tmp;
+
+	return tmp;
+}
+</code></pre>
+
+<p>关键代码</p>
+
+<pre><code>sizeof(a) / sizeof(a[0])
+</code></pre>
+
+<p>这一段是网上流行(?)计算数组元素个数的代码</p>
+
+<p>但是在数组为指针的时候,经常会出错(C6384)</p>
+
+<blockquote>
+  <p>解决方法:</p>
+</blockquote>
+
+<p>使用结构(struct)传递</p>
+<pre><code>struct a{
+int b[5]}
+xxx(struct a)
+{
+sizeof(a.b);
+}
+</code></pre>
+<p>似乎是因为在传递的时候,数组变成了一个指针…</p>
+:ET

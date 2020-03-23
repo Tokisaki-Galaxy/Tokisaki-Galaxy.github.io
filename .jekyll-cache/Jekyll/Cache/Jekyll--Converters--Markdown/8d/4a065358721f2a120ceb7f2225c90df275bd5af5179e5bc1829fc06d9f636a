@@ -1,0 +1,8 @@
+I"¶<p>```
+int i_max(int a[]) {
+	int tmp=a[0];
+	for (int i = 0; i &lt; sizeof(a) / sizeof(a[0]); i++)
+		if (tmp &lt; a[i])
+			tmp = a[i];
+//		tmp &lt; a[i] ? tmp = a[i] : tmp = tmp;</p>
+:ET

@@ -1,0 +1,20 @@
+I"_<pre><code>sudo nano /lib/systemd/system/xxx.service
+</code></pre>
+
+<pre><code>[Unit]
+Description=Your Service Name
+After=network.target syslog.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=Your File Path
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<pre><code>systemctl daemon-reload
+systemctl start frpc.service
+</code></pre>
+:ET

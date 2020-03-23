@@ -1,0 +1,91 @@
+I"?<ul id="markdown-toc">
+  <li><a href="#准备工作" id="markdown-toc-准备工作">准备工作</a></li>
+  <li><a href="#gpsd" id="markdown-toc-gpsd">GPSD</a>    <ul>
+      <li><a href="#安装gpsd" id="markdown-toc-安装gpsd">安装GPSD</a></li>
+      <li><a href="#修改端口" id="markdown-toc-修改端口">修改端口</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="准备工作">准备工作</h1>
+
+<p>RPi GPS Add-on V2.0模块,采用的是UART接口通信,需要先启用uart接口,否则无法收到任何数据</p>
+
+<p><code>sudo raspi-config</code></p>
+
+<p>5 Interfacing Options -&gt; P6 Serial 两个全部禁用(这个操作将禁用串口!)</p>
+
+<p><code>sudo nano /boot/config.txt</code></p>
+
+<p>拉到最下面,将<code>enable_uart=0</code>改成<code>enable_uart=1</code></p>
+
+<p>再加一行<code>dtoverlay=pi3-miniuart-bt</code></p>
+
+<p>重启后</p>
+
+<p><code>ls /dev -la |grep serial</code></p>
+
+<blockquote>
+  <p>pi@RAAZ:~ $ ls /dev -la | grep serial</p>
+</blockquote>
+
+<blockquote>
+  <p>lrwxrwxrwx  1 root root           7 Feb 12 16:19 serial1 -&gt; ttyAMA0</p>
+</blockquote>
+
+<p>找到自己GPS模块在哪里,<strong>我这里是/dev/ttyAMA0,你可能需要修改</strong></p>
+
+<p>然后<code>cat /dev/ttyAMA0</code></p>
+
+<p>然后应该能看到一大堆数据,按<code>Ctrl+C</code>停止.</p>
+
+<p><strong>没有任何输出可能是操作有误,或模块损坏</strong></p>
+
+<h1 id="gpsd">GPSD</h1>
+
+<h2 id="安装gpsd">安装GPSD</h2>
+
+<p><code>sudo apt-get install gpsd gpsd-clients python-gps</code></p>
+
+<h2 id="修改端口">修改端口</h2>
+
+<p><code>sudo nano /etc/default/gpsd</code></p>
+
+<pre><code>USBAUTO="false"
+DEVICES="/dev/ttyAMA0"
+GPSD_OPTIONS="-n"
+</code></pre>
+<p>按照上述改完之后,重启系统</p>
+
+<blockquote>
+  <p>cgps</p>
+</blockquote>
+
+<blockquote>
+  <p>cgps is a client resembling xgps, but without the pictorial satellite display and able to run on a serial terminal or terminal emulator.</p>
+</blockquote>
+
+<blockquote>
+  <p>The -s option prevents cgps from displaying the data coming from the daemon. This display can also be toggled with the s command.</p>
+</blockquote>
+
+<blockquote>
+  <p>The -m option will display your magnetic heading (as opposed to your true heading). This is a calculated value, not a measured value, and is subject to a potential error of up to two degrees in the areas for which the calculation is valid (currently Western Europe, Alaska, and Lower 48 in the USA). The formulas used are those found in the Aviation Formulary v1.43.</p>
+</blockquote>
+
+<blockquote>
+  <p>cgps terminates when you send it a SIGHUP or SIGINT; given default terminal settings this will happen when you type Ctrl-C at it. It will also terminate on ‘q’</p>
+</blockquote>
+
+<p>输入<code>cgps -s</code></p>
+
+<p><strong>!如果你用的是图形界面,不是命令行,那试试xgps!</strong></p>
+
+<p>应该就可以看到结果了</p>
+
+<p><strong>冷启动要等挺久的</strong></p>
+
+<p><strong>如果NO FIX那一行后面的数字没有跳动,请检查/dev/ttyAMA0是否有输出</strong></p>
+
+<p><strong>如果等很久还没定位,可能是GPS信号差</strong></p>
+:ET

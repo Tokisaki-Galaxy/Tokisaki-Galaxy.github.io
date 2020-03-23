@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>CPU升(降)压教程</title>
+  <meta name="description" content="">
+  
+  <meta name="google-site-verification" content="ZUU-JbXl-OjIYuc0H9F9vfYUVmVjPtFInD3HywDrx5o" />
+  <meta name="sogou_site_verification" content="QWPMfgbJiX"/>
+  <meta name="360-site-verification" content="938f00f51dee1149837c3b5fbccbdae6" />
+  <meta name="baidu-site-verification" content="E1vRDDFgHc" />
+  <meta name="FUCK YOU BAIDU!" content="0xFFFFF" />
+
+  <meta name="keywords" content="电脑"/> 
+
+  <meta property="og:title" content="Tokisaki Galaxy">
+  <meta property="og:site_name" content="http://localhost:4000">
+  <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CPU升(降)压教程">
+  <meta name="twitter:description" content="">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CPU升(降)压教程">
+  <meta property="og:description" content="">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/waifu/waifu.css"/>
+
+  <link rel="canonical" href="http://localhost:4000/2020/02/CPU/">
+  <link rel="alternate" type="application/rss+xml" title="Tokisaki Galaxy" href="http://localhost:4000/feed.xml">
+
+<!--支持mathjax-->
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[','\\]'] ], processEscapes: true } }); </script> <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  
+
+<!-- 百度统计 -->
+  
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?4f2dd979b9b22575de650460b47dcc71";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
+
+
+  <!-- Google 统计 -->
+<!--  -->
+
+
+<!--
+<!--Google 广告(爱你哦)->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9005224472374751",
+    enable_page_level_ads: true
+  });
+</script>-->
+
+<link rel="stylesheet" type="text/css" href="/assets/waifu/waifu.css"/>
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于我
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/links" title="links" class="btn-mobile-menu__icon">
+                      友情链接
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 Tokisaki Galaxy 的主页" class="blog-button">
+                <div class="img"><img src="https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                Tokisaki Galaxy
+                            
+                        </h2>
+                        <p>
+                           
+                                这里什么都没有
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Tokisaki Galaxy" class="blog-button">Tokisaki Galaxy</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">个人站</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">僕らの手には何もないけど,かわりに　つなぎあえるから</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+                  <li class="navigation__item"><a href="/links" title="links">友情链接</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">CPU升(降)压教程</h1>
+    <div class="post-meta">
+      <img src="/assets/images/calendar.png" width="20px"/> 
+      <time datetime="2020-02-09 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-02-09</time>  
+         
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span> 次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+     <!-- 在正文开头添加网易云音乐插件 -->
+    
+    <ul id="markdown-toc">
+  <li><a href="#注意事项" id="markdown-toc-注意事项">注意事项:</a></li>
+  <li><a href="#throttlestop" id="markdown-toc-throttlestop">ThrottleStop</a>    <ul>
+      <li><a href="#fivr最重要的部分" id="markdown-toc-fivr最重要的部分">FIVR(最重要的部分)</a></li>
+      <li><a href="#设置开机自启动" id="markdown-toc-设置开机自启动">设置开机自启动</a></li>
+    </ul>
+  </li>
+  <li><a href="#process-lasso" id="markdown-toc-process-lasso">Process Lasso</a></li>
+</ul>
+
+<blockquote>
+  <ul>
+    <li>ThrottleStop</li>
+    <li>Process Lasso</li>
+  </ul>
+</blockquote>
+
+<p>下载地址:
+<a href="https://www.techpowerup.com/download/techpowerup-throttlestop/">ThrottleStop</a>
+<a href="https://dl.bitsum.com/files/processlassosetup64.exe">Process Lasso</a></p>
+
+<hr />
+
+<h2 id="注意事项">注意事项:</h2>
+
+<p>XTU和TS不需要用在一起</p>
+
+<hr />
+
+<h1 id="throttlestop">ThrottleStop</h1>
+
+<p>下载后解压到固定位置(<strong>不要轻易更改的路径</strong>)(<em>例如”C:\Program File\ThrottleStop”</em>)</p>
+
+<p>然后点开ThrottleStop.exe</p>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1h5Vqs.png" alt="主界面" /></p>
+
+<p>左上第一个红框是选择配置文件,软件默认有4个配置文件</p>
+
+<ol>
+  <li>Performance</li>
+  <li>Game</li>
+  <li>Internet</li>
+  <li>Battery</li>
+</ol>
+
+<p><strong>用法就像名字一样(废话)</strong></p>
+
+<p>把你的每个选项里的Speed Shift - EPP都勾上,从左到右分别设成0/30/128/255</p>
+
+<hr />
+
+<p>左下那个红框,<em>先介绍第一列的功能</em></p>
+
+<p><strong>Clock Modulation和Chipset Clock Modulation</strong>
+<strong>不需要勾选!</strong></p>
+
+<p><strong>Set Multiplier</strong>
+<strong>不设也行</strong></p>
+
+<p><strong>Speed Shift EPP</strong> <strong>非常有用!</strong>
+看到左边的数字了吗,那里是可以编辑的!(想不到吧)
+<strong>值取一个0-255的数字,越接近0 性能越高,越接近255越节能(性能越低)</strong></p>
+
+<p><strong>Power Saver</strong> 需要勾选 Disable Turbo 才能使用，该选项确保待机频率最低以降低功耗，对较新的处理器来说用处不大，因为现代处理器有新技术降低待机功耗。比酷睿 2 更新的处理器不建议使用这个。
+<strong>看着办,一般不勾</strong></p>
+
+<p><strong>Disable Turbo</strong> 关闭睿频.没啥可说
+<strong>现在处理器最好别勾</strong>(你基础频率才2G+)</p>
+
+<p><strong>BD PROCHOT</strong> <strong>非常,非常重要和有用</strong>
+在温度达到某一值的时候降低功率,俗称温度墙,就是这东西.(默认打开)
+<strong>有需要就关上,但并不建议关</strong>
+!!!关了如果<strong>没有其他措施</strong>会导致cpu无法自动降频,直到100度<strong>强制断电</strong>!!!</p>
+
+<p>Save 将当前设置存入 ini 文件。
+<strong>修改完记得按一下</strong></p>
+
+<hr />
+
+<p><strong>打开下面 Options 按钮</strong></p>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hqlkj.png" alt="1hqlkj.png" /></p>
+
+<p>Do Not reset FID/VID on exit，退出不TS恢复设置
+<strong>建议勾上</strong></p>
+
+<p>Start Minimized 启动时最小化
+<strong>建议勾上</strong></p>
+
+<p>Minimize on Close 
+<strong>建议勾上</strong></p>
+
+<p>Nvidia GPU/AMD GPU 你用哪个勾哪个
+<strong>可以不勾</strong></p>
+
+<hr />
+
+<h2 id="fivr最重要的部分">FIVR(最重要的部分)</h2>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hLqR1.png" alt="1hLqR1.png" /></p>
+
+<p>直接说中间那行,左边不说了.</p>
+
+<p>上面FIVR CONTROL很好理解,就是指选择哪个组件,然后通过下面的XXX Voltage来调整</p>
+
+<p>XXX Voltage是重点,这里为了防止你瞎改,还特意有一个”Unlock Adjustable Voltage”,必须先点了这个才能修改下面的设置</p>
+
+<p><strong>注意不要碰到那个STATIC!</strong></p>
+
+<p>不要碰那个Voltage</p>
+
+<p>看Offset Voltage,Range是控制你调整范围,左边是降低电压,右边升高电压</p>
+
+<p>IccMax <strong>不明</strong>
+如果有人知道请评论区告诉我,谢谢</p>
+
+<p><strong>这里需要你自己调出最适合你电脑的OFFSET VOLTAGE</strong>
+<strong>每个CPU的质量不一样,没有统一数据</strong></p>
+
+<p>Save Voltages Changes to ThrottleStop.INI 选项一，不保存电压设置。选项二，关闭时保存。选项三，立即保存。</p>
+
+<hr />
+
+<h2 id="设置开机自启动">设置开机自启动</h2>
+
+<p>按一下windows(或者按搜索)输入任务计划程序</p>
+
+<p><img src="https://s2.ax1x.com/2020/02/09/1hxD4e.png" alt="1hxD4e.png" /></p>
+
+<p>任务计划程序 - 创建基本任务</p>
+
+<p>设置名称 - 下一步</p>
+
+<p>希望何时开始？当用户登录时</p>
+
+<p>希望执行什么操作？启动程序</p>
+
+<p>程序或脚本：填入ThrottleStop.exe 的完整路径</p>
+
+<p>勾选“当单击完成时，打开任务属性对话框”</p>
+
+<p>勾选“使用最高权限运行”</p>
+
+<p>条件选项卡：取消所有的勾选项，有些灰色的勾选项可以先勾选他的上层将其取消之后再取消勾选他的上层。总之不要有任何的勾选项，灰色的也不要有。</p>
+
+<p>设置选项卡：勾选允许按需运行任务。其余全部取消勾选。</p>
+
+<p>确定。</p>
+
+<hr />
+
+<h1 id="process-lasso">Process Lasso</h1>
+
+<p>施工中…..</p>
+
+
+  </section>
+</article>
+
+<section>
+
+            <div class="content-play" style="align:center">
+              <p style="text-align:center;"><a style="diaplay:inline-block; transform:translate(50%,0);" href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+              <div class="hide_box-play"></div>
+              <div class="shang_box-play">
+                <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/assets/images/payimg/close.jpg" alt="取消" /></a>
+                <div class="shang_tit-play">
+                  <p>感谢您的支持，我会继续努力的!</p>
+                </div>
+                <div class="shang_payimg">
+                    <img src="/assets/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+              <div style="align:center" class="shang_payimg">
+                    <img src="/assets/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">你说多少就多少</div>
+                <div class="shang_payselect">
+                  <div class="pay_item checked" data-id="alipay">
+                    <span class="pay_logo"><img src="/assets/images/payimg/alipay.jpg" alt="支付宝" /></span>
+                  </div>
+                  <div class="pay_item" data-id="weipay">
+                    <span class="pay_logo"><img src="/assets/images/payimg/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info-play">
+                  <p>比五毛钱特效哦</p>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            function dashangToggle(){
+              $(".hide_box-play").fadeToggle();
+              $(".shang_box-play").fadeToggle();
+            }
+            </script>
+
+            <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+            <style type="text/css">
+              .content-play{width:80%;margin-top: 20px;margin-bottom: 10px;height:40px;}
+              .hide_box-play{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+              .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+              .shang_box-play img{border:none;border-width:0;}
+              .dashang{display:block;width:60px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .shang_close-play{float:right;display:inline-block;
+                margin-right: 10px;margin-top: 20px;
+              }
+              .shang_logo{display:block;text-align:center;margin:20px auto;}
+              .shang_tit-play{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/assets/images/payimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+              .shang_tit-play p{color:#a3a3a3;text-align:center;font-size:16px;}
+              .shang_payimg{width:140px;padding:10px;padding-left: 80px; /*border:6px solid #EA5F00;**/margin:0 auto;border-radius:3px;height:140px;display:inline-block;}
+              .shang_payimg img{display:inline-block;margin-right:10px;float:left;text-align:center;width:140px;height:140px; }
+              .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+              .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:500px;margin-left:110px;}
+              .shang_payselect .pay_item{display:inline-block;margin-right:140px;float:left;}
+              .shang_info-play{clear:both;}
+              .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+            </style>
+
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2020/02/RPi-SCREEN/" data-toggle="tooltip" data-placement="top" title="Screen">上一篇：  <span>Screen</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2020/02/TS/" data-toggle="tooltip" data-placement="top" title="ThrottleStop教程">下一篇：  <span>ThrottleStop教程</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+  
+<!--GitTalk-->
+<!-- Link Gitalk 的支持文件  -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!--<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">-->
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<!--<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>-->
+
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'd2734ed7b7b6fef664e6',
+        clientSecret: 'dd83a2d6f2bb2d52461f7e38c5850cb4a35e0e72',
+        repo: 'blogtalk',
+        owner: 'tokisaki-galaxy',
+        admin: ['tokisaki-galaxy'],
+        id: location.pathname,
+//        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+</script> 
+<!-- Gitalk end -->
+
+  <!--
+  
+  -->
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">  
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+          
+          <!-- Weibo -->
+          <li class="navigation__item_social">
+            <a href="http://weibo.com/None" title="@None 的微博" target="_blank">
+              <i class='social fa fa-weibo fa-2x'></i>
+              <span class="label">Weibo</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/tokisaki-galaxy" title="@tokisaki-galaxy 的 Github" target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:tokisaki-galayxy@qq.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+
+          </ul>
+        </nav>
+
+        </div>
+
+    <!-- waifu-tips.js 依赖 JQuery 库 -->
+    <script src="https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/waifu/jquery.min.js?v=3.3.1"></script>
+    
+    <!-- 实现拖动效果，需引入 JQuery UI -->
+    <script src="https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/waifu/jquery-ui.min.js?v=1.12.1"></script>
+    
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+        
+    <!--Live2D-->
+    <script src="https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/waifu/waifu-tips.min.js?v=1.4.2"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/waifu/live2d.min.js?v=1.0.5"></script>
+    <script type="text/javascript">
+        /* 可直接修改部分参数 */
+        live2d_settings['modelId'] = 2;                  // 默认模型 ID
+        live2d_settings['modelTexturesId'] = 60;         // 默认材质 ID
+        live2d_settings['modelStorage'] = false;         // 不储存模型 ID
+        live2d_settings['waifuSize'] = '300x267';        // 看板娘大小
+        live2d_settings['waifuTipsSize'] = '285x75';    // 提示框大小
+        live2d_settings['waifuFontSize'] = '15px';       // 提示框字体
+        live2d_settings['waifuToolFont'] = '18px';       // 工具栏字体
+        live2d_settings['waifuToolLine'] = '25px';       // 工具栏行高
+        live2d_settings['waifuToolTop'] = '-30px';       // 工具栏顶部边距
+        live2d_settings['waifuEdgeSide'] = 'right:30';
+        live2d_settings['waifuDraggable'] = 'axis-x';    // 拖拽样式
+        live2d_settings['canCloseLive2d'] = true;       // 隐藏 关闭看板娘 按钮
+        live2d_settings['canTurnToAboutPage'] = false;
+        live2d_settings['canTakeScreenshot'] = false;
+        /* 在 initModel 前添加 */
+        initModel("https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/waifu/waifu-tips.json?v=1.4.2")
+    </script>
+
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+    <!--以下为自动推送-->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  </body>
+
+</html>

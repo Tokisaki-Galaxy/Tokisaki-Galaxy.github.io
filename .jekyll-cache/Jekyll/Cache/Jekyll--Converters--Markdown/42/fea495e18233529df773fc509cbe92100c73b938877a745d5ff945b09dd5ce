@@ -1,0 +1,45 @@
+I"�<p><br />
+2019年8月10日上传至Github</p>
+
+<p>本站使用IMGCHR图床</p>
+
+<p><br />
+模板来自https://github.com/leopardpan/leopardpan.github.io.git
+<br />
+clone代码之后
+<br />
+需要先安装</p>
+
+<blockquote>
+  <ul>
+    <li>Ruby</li>
+    <li>Gem包管理器</li>
+  </ul>
+</blockquote>
+
+<pre><code>gem install bundle
+bundle install
+bundle update
+</code></pre>
+<p>然后配置完成,在根目录运行</p>
+<pre><code>jekyll server
+</code></pre>
+
+<blockquote>
+  <p>使用讨论区功能</p>
+  <pre><code>_includes/comments.html
+</code></pre>
+</blockquote>
+
+<pre><code>&lt;script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="&gt;&lt;/script&gt;
+</code></pre>
+
+<blockquote>
+  <p>Windows</p>
+</blockquote>
+
+<p>安装<a href="https://nodejs.org/en/">Node.js</a></p>
+
+<p><br />
+转载请注明：<a href="http://evil-binary.github.io">Evil-Binary的博客</a> » <a href="http://evil-binary.github.io/2019/08/Blog/">我的第一篇博客</a></p>
+:ET

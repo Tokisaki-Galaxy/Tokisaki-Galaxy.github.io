@@ -1,0 +1,207 @@
+I"q<p><a href="https://eyun.baidu.com/s/3jJhjRmA">不想动手可以直接下载的懒人版,密码QRSJ</a></p>
+
+<blockquote>
+  <ul>
+    <li>VSCode</li>
+    <li>LLVM</li>
+    <li>mingw64</li>
+  </ul>
+</blockquote>
+
+<p><a href="https://code.visualstudio.com/Download">下载VSCode</a></p>
+
+<p><strong>注意选择下载压缩包格式</strong></p>
+
+<hr />
+
+<p><a href="http://releases.llvm.org/download.html">下载LLVM</a></p>
+
+<p>不需要选sig文件</p>
+
+<p><strong>注意选择”Pre-Built Binaries”,系统位数要对应你上面选的</strong></p>
+
+<hr />
+
+<p><a href="https://sourceforge.net/projects/mingw-w64/files/">下载MinGW-W64</a></p>
+
+<p><strong>如果你系统版本是x64,下载x86_64-posix-seh</strong></p>
+
+<p><strong>如果你系统版本是x32,下载x86_64-win32-seh</strong></p>
+
+<hr />
+
+<p>1.解压VSCode到某个地方,再把MinGW解压到VSCode的目录里</p>
+
+<p>我做这几部只是为了得到LLVM目录,卸载掉它只是因为不想让程序列表里太多<strong>非强迫症可以忽略2-4步,直接选择安装目录到第一步文件夹里</strong></p>
+
+<p>2.安装LLVM,先<strong>随便</strong>安装到一个位置</p>
+
+<p>3.把LLVM目录整个拷到第1步里的目录里</p>
+
+<p>4.卸载掉你系统里的LLVM</p>
+
+<p>5.将附件中!start.vbs和start.bat复制到第一步的文件夹中</p>
+
+<p>6.注释掉start.bat最后一行<strong>就是在最后一行前面加::</strong></p>
+
+<p>7.<strong>!!这一步做完不要关!!</strong>在cmd(或者power shell)中输入.\start.bat运行脚本,然后输入clang和gcc.<strong>如果出现xxx不是内部或外部命令,就说明你start.bat配置有问题</strong></p>
+
+<p>8.在你第1步的文件夹中新建以下名字的<strong>文件夹</strong></p>
+<pre><code>Users
+	Users\AppData
+		Users\AppData\Local
+		Users\AppData\Roaming
+		Users\AppData\Desktop
+
+extensions
+</code></pre>
+
+<p>9.安装扩展</p>
+<pre><code>Chinese(简中语言包)
+C/C++
+vscode-clangd
+Code Runner
+Bracket Pair Colorizer 2
+One Dark Pro(主题包,可选)
+</code></pre>
+
+<p>10.在第7步中的cmd(或power shell)中输入.\code.exe进入VSCode</p>
+
+<p>11.在文件浏览器中新建一个目录(<strong>我就直接在第1步的目录中新建了一个!Code</strong>),然后在VSCode中打开它,然后选择将工作区另存为</p>
+
+<p>需要注意的是这里你把每个语言的工作目录放到单独的文件夹中,比如c放到c中,c++放到c++中</p>
+
+<p>12.在!Code中又新建一个名叫C++的文件夹<strong>(具体参照自身情况)</strong></p>
+
+<p>13.在C++目录中新建一个.vscode的文件夹,然后在里面把附件中的launch.json,tasks.json,settings.json,compile_flags.txt复制进去</p>
+
+<p>14.取消第6步中的注释,关掉这个VSCode.运行!start.vbs</p>
+
+<p>15.新建一个文件,输入点什么测试代码</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main (){
+    string a="";
+	cout &lt;&lt; "Input:" &lt;&lt; endl;
+    cin &gt;&gt; a;
+    cout &lt;&lt; a;
+    return 0;
+}
+</code></pre>
+
+<p>16.点击右上箭头,看看控制台是不是输出了Input:.然后输入随便什么东西,看看它会不会原封不动的显示出来</p>
+
+<p>17.没了</p>
+
+<h1 id="附件">附件</h1>
+
+<hr />
+
+<h2 id="startbat">start.bat</h2>
+<pre><code>set ThisDir=%~dp0
+set USERPROFILE=%ThisDir%Users
+set APPDATA=%USERPROFILE%\AppData\Roaming
+set path=%ThisDir%LLVM\bin;%ThisDir%mingw64\bin;%path%
+REM Code.exe --extensions-dir "extensions"
+Code.exe !Code\C++\code.code-workspace
+</code></pre>
+
+<h2 id="startvbs">!start.vbs</h2>
+<pre><code>set ws=createobject("wscript.shell")
+ws.run "start.bat",0
+</code></pre>
+
+<h2 id="launchjson">launch.json</h2>
+<pre><code>{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "internalConsoleOptions": "neverOpen",
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": false
+                }
+            ],
+            "preLaunchTask": "Compile"
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="tasksjson">tasks.json</h2>
+
+<pre><code>{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile",
+            "command": "clang++", //如果你是用c语言,改成clang
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-g",
+                "-Wall",
+                "-static-libgcc",
+                "--target=x86_64-w64-mingw",
+            ],
+            "type": "process",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+		}
+    ]
+}
+</code></pre>
+
+<h2 id="settingsjson">settings.json</h2>
+<pre><code>{
+    "files.defaultLanguage": "c",
+    "editor.formatOnType": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.acceptSuggestionOnEnter": "off",
+
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "c": "cd $dir &amp;&amp; clang '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c11 &amp;&amp; &amp;'$dir$fileNameWithoutExt'",
+        "cpp": "cd $dir &amp;&amp; clang++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc --target=x86_64-w64-mingw -std=c++17 &amp;&amp; &amp;'$dir$fileNameWithoutExt'"
+    },
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.preserveFocus": true,
+    "code-runner.clearPreviousOutput": false,
+    "code-runner.ignoreSelection": true,
+
+    "C_Cpp.clang_format_sortIncludes": true,
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.suggestSnippets": false,
+}
+</code></pre>
+
+<h2 id="compile_flagstxt">compile_flags.txt</h2>
+<pre><code>-Wall
+--target=x86_64-w64-mingw
+-std=c++17
+#写的语言是C,注释掉上面那行
+</code></pre>
+:ET

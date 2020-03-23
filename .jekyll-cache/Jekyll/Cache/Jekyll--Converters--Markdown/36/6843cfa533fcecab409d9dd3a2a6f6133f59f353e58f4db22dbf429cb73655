@@ -1,0 +1,57 @@
+I"�<blockquote>
+  <ul>
+    <li>安装</li>
+    <li>配置dnscrypt-proxy</li>
+    <li>将路由器默认DNS更改为RPi</li>
+    <li>配置失败自动重启</li>
+  </ul>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>安装</p>
+</blockquote>
+
+<pre><code>sudo apt-get install dnscrypt-proxy
+sudo apt-get install dnsutils #包含了dig什么的命令,最好装上
+</code></pre>
+
+<blockquote>
+  <p>配置dnscrypt-proxy</p>
+</blockquote>
+
+<pre><code>sudo nano /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+listen_addresses = ['127.0.0.1:53', '192.168.0.150:53'] #按照你自己的IP改
+server_names = ['cloudflare','cloudflare-ipv6']
+</code></pre>
+
+<pre><code>dnscrypt-proxy -resolve cloudflare-dns.com
+</code></pre>
+<p>试试行不行,没问题再做下一步安装服务</p>
+
+<p><strong>非常重要,不然启动服务时会绑定端口失败</strong></p>
+
+<pre><code>sudo nano /lib/systemd/system/dnscrypt-proxy.service #更改dnscrypt-proxy服务设置
+#User=_dnscrypt-proxy #注释掉源文件这一行
+User=root #新加这一行,让它以root身份运行(好像不怎么安全..哈哈不管了)
+</code></pre>
+<p>启动服务试试吧!</p>
+<pre><code>sudo systemctl enable dnscrypt-proxy
+sudo systemctl start dnscrypt-proxy
+sudo systemctl status dnscrypt-proxy
+</code></pre>
+
+<blockquote>
+  <p>将路由器默认DNS更改为RPi</p>
+</blockquote>
+
+<p>略略略!!!</p>
+
+<p><strong>自己百度,只有一点要注意,就是要改的地方是DHCP的,不是WAN口DNS!!!</strong></p>
+
+<h1 id="参考网址">参考网址</h1>
+
+<p><a href="https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/">couldflare</a>
+<a href="https://github.com/DNSCrypt/dnscrypt-proxy/wiki/installation#setting-up-dnscrypt-proxy">DNScrypt-proxy</a></p>
+:ET

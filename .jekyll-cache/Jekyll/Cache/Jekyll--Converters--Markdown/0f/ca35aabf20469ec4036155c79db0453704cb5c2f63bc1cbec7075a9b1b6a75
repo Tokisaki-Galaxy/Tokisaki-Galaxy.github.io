@@ -1,0 +1,90 @@
+I"7<blockquote>
+  <ul>
+    <li>rpi 3b watchdog</li>
+    <li>硬盘闲置自动休眠</li>
+  </ul>
+</blockquote>
+
+<h1 id="请依据cpu型号修改watchdog设备">请依据CPU型号修改watchdog设备</h1>
+
+<hr />
+
+<h1 id="hdparm">hdparm</h1>
+<hr />
+
+<blockquote>
+  <p>安装hdparm（略）</p>
+</blockquote>
+
+<blockquote>
+  <p>测试hdparm</p>
+</blockquote>
+
+<p><a href="http://www.linux-magazine.com/Online/Features/Tune-Your-Hard-Disk-with-hdparm">hdparm链接</a></p>
+
+<pre><code>sudo hdparm -y /dev/sda1
+</code></pre>
+<p><strong>如果没有报错就支持</strong></p>
+
+<pre><code>sudo hdparm -I /dev/sda1|grep cache
+</code></pre>
+<p><strong>如果看到有”*“就支持缓存</strong></p>
+
+<blockquote>
+  <p>编辑hdparm</p>
+  <pre><code>sudo nano /etc/hdparm.conf
+</code></pre>
+  <p>加入</p>
+  <pre><code>/dev/sda1 {
+write_cache = on
+spindown_time = 120
+}
+</code></pre>
+  <p><em>如果不支持缓存就不要加入write_cache那行</em></p>
+</blockquote>
+
+<p><em>下面延时计算是 无操作休眠时间(分钟)*60/5</em></p>
+
+<h1 id="watchdog">watchdog</h1>
+<hr />
+
+<blockquote>
+  <p>安装watchdog（略）</p>
+</blockquote>
+
+<blockquote>
+  <p>载入watchdog</p>
+  <pre><code>sudo modprobe bcm2835_wdt
+sudo nano /etc/modules
+bcm2835_wdt
+</code></pre>
+</blockquote>
+
+<blockquote>
+  <p>编辑配置</p>
+  <pre><code>sudo /etc/watchdog.conf
+</code></pre>
+</blockquote>
+
+<blockquote>
+  <p>修改</p>
+  <pre><code>max-load-1=24
+watchdog-device = /dev/watchdog
+watchdog-timeout=20
+temperature-sensor      = /sys/class/thermal/thermal_zone0/temp
+max-temperature = 85000
+</code></pre>
+</blockquote>
+
+<blockquote>
+  <p>启动</p>
+  <pre><code>sudo systemctl enable watchdog.service
+sudo chkconfig watchdog on
+</code></pre>
+</blockquote>
+
+<h2 id="附赠一个fork-bomb">附赠一个fork bomb</h2>
+
+<pre><code>:(){ :|: &amp; };:
+</code></pre>
+:ET
