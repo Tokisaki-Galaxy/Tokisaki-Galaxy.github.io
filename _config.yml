@@ -1,13 +1,13 @@
 ﻿# Basic
-title: Evil-Binary
+title: Tokisaki Galaxy
 subtitle: 个人站
 description: 僕らの手には何もないけど,かわりに　つなぎあえるから
 # 头像里面的标题
-avatarTitle: Evil-Binary
+avatarTitle: Tokisaki Galaxy
 # 头像里面的描述
 avatarDesc: 这里什么都没有
-avatar: https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg
-url: "https://evil-binary.github.io"
+avatar: https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/images/avatar.jpg
+url: "https://Tokisaki-Galaxy.github.io"
 
 markdown: kramdown
 kramdown:
@@ -17,8 +17,8 @@ kramdown:
 # Social
 social:
     weibo:  None
-    github: evil-binary
-    mail: 1341281757@qq.com
+    github: tokisaki-galaxy
+    mail: tokisaki-galayxy@qq.com
 
 # 百度统计
 baidu:

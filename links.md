@@ -243,13 +243,13 @@ title: 友情链接
 
 > 将本站加入友链后联系我可以互加友链
 
-> 名称：Evil-Binary
+> 名称：Tokisaki-Galaxy
 
 > 介绍：僕らの手には何もないけど,かわりに　つなぎあえるから
 
-> 地址：[https://evil-binary.github.io/](https://evil-binary.github.io/)
+> 地址：[https://tokisaki-galaxy.github.io/](https://tokisaki-galaxy.github.io/)
 
-> 图片：<a href="https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/evil-binary/evil-binary.github.io/assets/images/avatar.jpg</a>
+> 图片：<a href="https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/images/avatar.jpg">https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/images/avatar.jpg</a>
 
 
 {% include comments.html %}
