@@ -39,6 +39,24 @@
 
         </div>
 
+<script src="/assets/fancybox/lib/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/assets/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script>
+// 给图片添加链接
+    $(document).ready(function() {
+    $("p img").each(function() {
+      var strA = "<a id='yourid' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+    });
+    });
+        
+    // fancybox
+    $("#yourid").fancybox({
+      openEffect    : 'elastic',
+      closeEffect   : 'elastic',
+    });
+</script>
+
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
 <span id="times">载入时分秒...</span>  我会尽力陪伴你的！
