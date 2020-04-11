@@ -9,12 +9,6 @@ avatarDesc: 这里什么都没有
 avatar: https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/Tokisaki-Galaxy.github.io/assets/images/avatar.jpg
 url: "https://TokisakiGalaxy.xyz"
 
-markdown: kramdown
-kramdown:
-  input:  GFM
-  syntax_highlighter: coderay
-future: true
-
 # Social
 social:
     weibo:  None
