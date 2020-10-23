@@ -33,8 +33,12 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
 <script>
-//window.location.replace("http://tokisaki-galaxy.now.sh");
-alert('博客新地址<a>https://tokisaki-galaxy.now.sh</a>');
+  var r = confirm("博客新地址https://tokisaki-galaxy.now.sh\n点击确定跳转");
+  if (r == true) {
+    window.location.replace("http://tokisaki-galaxy.now.sh");
+  } else {
+    x = "您按了取消！";
+  }
 </script>
   
 <!--支持mathjax-->
